@@ -9,8 +9,8 @@ class fraction
 {
 public:
     fraction(){
-        a = 1;
-        b = 1;
+        num = 1;
+        denom = 1;
     }
     fraction(int n, int d){
         num = n;
@@ -31,5 +31,5 @@ public:
 private:
     int num;
     int denom;
-}
+};
 #endif /* fraction_h */
