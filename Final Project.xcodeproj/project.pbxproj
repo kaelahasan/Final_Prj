@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C9131290248327AD0020AA04 /* complex_number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C913128E248327AD0020AA04 /* complex_number.cpp */; };
 		C913129324836D8F0020AA04 /* fraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C913129224836D8F0020AA04 /* fraction.cpp */; };
+		C9131297248373C00020AA04 /* matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9131296248373C00020AA04 /* matrix.cpp */; };
 		C976FE812461C8C10047E247 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C976FE802461C8C10047E247 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,8 @@
 		C9131291248327C50020AA04 /* complex_number.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = complex_number.h; sourceTree = "<group>"; };
 		C913129224836D8F0020AA04 /* fraction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fraction.cpp; sourceTree = "<group>"; };
 		C913129424836D9D0020AA04 /* fraction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fraction.h; sourceTree = "<group>"; };
+		C9131295248372890020AA04 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
+		C9131296248373C00020AA04 /* matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = matrix.cpp; sourceTree = "<group>"; };
 		C976FE7D2461C8C10047E247 /* Final Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Final Project"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C976FE802461C8C10047E247 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +71,8 @@
 				C913128E248327AD0020AA04 /* complex_number.cpp */,
 				C913129424836D9D0020AA04 /* fraction.h */,
 				C913129224836D8F0020AA04 /* fraction.cpp */,
+				C9131295248372890020AA04 /* matrix.h */,
+				C9131296248373C00020AA04 /* matrix.cpp */,
 			);
 			path = "Final Project";
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9131297248373C00020AA04 /* matrix.cpp in Sources */,
 				C976FE812461C8C10047E247 /* main.cpp in Sources */,
 				C913129324836D8F0020AA04 /* fraction.cpp in Sources */,
 				C9131290248327AD0020AA04 /* complex_number.cpp in Sources */,

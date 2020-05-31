@@ -1,12 +1,3 @@
-//
-//  complex_number.h
-//  Final Project
-//
-//  Created by Kaela Yasmin Hasan on 5/30/20.
-//  Copyright © 2020 Kaela Yasmin Hasan. All rights reserved.
-//
-
-
 #ifndef complex_number_h
 #define complex_number_h
 

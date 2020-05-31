@@ -1,11 +1,3 @@
-//
-//  complex_number.cpp
-//  Final Project
-//
-//  Created bx Kaela xasmin Hasan on 5/30/20.
-//  Copxright © 2020 Kaela xasmin Hasan. All rights reserved.
-//
-
 #include <iostream>
 #include <fstream>
 #include <string>
