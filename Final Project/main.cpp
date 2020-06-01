@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include "complex_number.h"
 #include "advanced_calculations.h"
 #include "fraction.h"
@@ -372,6 +373,32 @@ int main() {
             cout << "2: Greatest Common Factor (GCF)";
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c5);
+            if(c5 == "1"){
+                int n;
+                cout << "Enter a number: ";
+                cin >> n;
+                factor f = factor(n);
+                vector<int> factors = f.get_factors();
+                cout << endl << "The factors of " << n << "are:";
+                for(int i = 0; i < factors.size(); i++){
+                    cout << " " << factors[i];
+                    if(i != factors.size()-1){
+                        cout << ",";
+                    }
+                }
+            }
+            else if(c5 == "2"){
+                int n1;
+                int n2;
+                cout << "Enter your first number: ";
+                cin >> n1;
+                cout << endl << "Enter your second number: ";
+                cin >> n2;
+                factor f1 = factor(n1);
+                factor f2 = factor(n2);
+                int gcf = f1.gcf(f2);
+                cout << "The GCF of " << n1 << " and " << n2 << " is " << gcf;
+            }
         }
         else if(category == "6"){
             string c6;
@@ -379,6 +406,25 @@ int main() {
             cout << "2: Least Common Multiple (LCM)";
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c6);
+            if(c6 == "1"){
+                int n;
+                int x;
+                cout << "To find n multiples of a number x: " << endl;
+                cout << "Enter a number x: ";
+                cin >> x;
+                cout << endl << "Enter the number of multiples n: ";
+                cin >> n;
+                multiple m = multiple(x,n);
+                cout << "The first " << n << " multiples of " << x << " are: ";
+                vector<int> mult = m.get_multiples();
+                for(int i = 0; i < mult.size(); i++){
+                    cout << " " << mult[i];
+                    if(i != mult.size()-1){
+                        cout << ",";
+                    }
+                }
+                
+            }
         
         }
         else if(category == "7"){
