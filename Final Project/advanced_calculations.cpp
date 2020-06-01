@@ -8,12 +8,12 @@
 
 #include <stdio.h>
 
-int power(int a, int x){
-    int ans = 1;
+double power(double b, double x){
+    double ans = 1;
     for(int i =0; i<x; i++){
-        ans*=a;
+        ans*=b;
     }
-    return ans; 
+    return ans;
 }
     
 int factorial(int n){
@@ -32,7 +32,7 @@ int combination(int n, int r){
     return factorial(n)/(factorial(n-r)*factorial(r));
 }
 
-int absolute_value(int n){
+double absolute_value(double n){
     if(n<=0){
         return n;
     }

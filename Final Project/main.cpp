@@ -1,5 +1,11 @@
 #include <iostream>
 #include <string>
+#include "complex_number.h"
+#include "advanced_calculations.h"
+#include "fraction.h"
+#include "matrix.h"
+#include "factors.h"
+#include "multiples.h"
 using namespace std;
 
 
@@ -151,8 +157,63 @@ int main() {
                  << "4: Combination" << endl
                  << "5: Permutation" << endl
                  << "6: Absolute value" << endl;
-            cout << "Please enter the number corresponding to the category you would like to choose: ";
+            cout << "Enter the number corresponding to the category you would like to choose: ";
             getline(cin, c2);
+            if(c2 == "1"){
+                double b;
+                double x;
+                cout << "To calculate b^x: " << endl;
+                cout << "Enter the base b: ";
+                cin >> b;
+                cout << endl << "Enter the power x: ";
+                cin >> x;
+                
+                cout << b << "^" << x << " = " << power(b, x) << endl;
+            }
+            else if(c2 == "2"){
+                double s;
+                
+                cout << "Enter the number you would like to square root: ";
+                cin >> s;
+                //add cmath sqrt function
+                
+            }
+            else if(c2 == "3"){
+                int n;
+                cout << "To calculation n!: " << endl;
+                cout << "Enter n ";
+                cin >> n;
+                cout << endl << n << "! is: " << factorial(n) << endl;
+            }
+            else if(c2 == "4"){
+                int n;
+                int r;
+                cout << "To calculate C(n,r): " << endl;
+                cout << "Enter n: ";
+                cin >> n;
+                cout << endl << "Enter r: ";
+                cin >> r;
+                cout << "C(n,r) = " << combination(n, r) << endl;
+                
+            }
+            else if(c2 == "5"){
+                int n;
+                int r;
+                cout << "To calculate P(n,r): " << endl;
+                cout << "Enter n: ";
+                cin >> n;
+                cout << endl << "Enter r: ";
+                cin >> r;
+                cout << "P(n,r) = " << permutation(n, r) << endl;
+    
+            }
+            else if(c2 == "6"){
+                double x;
+                cout << "To calculate |x|, enter x: ";
+                cin >> x;
+                cout << "|x| = " << absolute_value(x) << endl;
+            }
+            
         
         }
         else if(category == "3"){

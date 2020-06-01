@@ -11,7 +11,7 @@
 #include <iostream>
 using namespace std; 
 
-int power(int a, int x);
+double power(double b, double x);
     
 int factorial(int n);
 
@@ -19,6 +19,6 @@ int permutation(int n, int r);
 
 int combination(int n, int r);
 
-int absolute_value(int n);
+double absolute_value(double n);
 
 #endif /* advanced_calculations_h */
