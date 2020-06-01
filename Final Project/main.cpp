@@ -4,7 +4,7 @@ using namespace std;
 
 
 int main() {
-    cout << "Hello. This is an advanced calculator.";
+    cout << "Hello. This is an advanced calculator." << endl;
     string again = "Y";
     while (again == "Y" || again == "y"){
         cout << "1: Basic Arithmetic" <<  endl
@@ -25,7 +25,35 @@ int main() {
                  << "4: Division" << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c1);
-        }
+            if (c1 == "1"){
+                int n1;
+                int n2;
+                string another = "y";
+                cout << "Please enter your first number: ";
+                cin >> n1;
+                cout << endl;
+                cout << "Please enter your next number: ";
+                cin >> n2;
+                cout << endl;
+                int sum = n1+n2;
+                cout << n1 << " + " << n2 << " = " << sum << endl;
+                cout << "Would you like to add another number? Enter Y or N: ";
+                cin >> another;
+                int n;
+                while(another == "Y" || another == "y"){
+                    
+                    cout << "Please enter your next number: ";
+                    cin >> n;
+                    sum+=n;
+                    cout << "Your sum is: " << sum << endl;
+                    cout << "Would you like to add another number? Enter Y or N: ";
+                    cin >> another;
+                    /*while(another != "Y" && another != "y" && another != "N" && another != "n"){
+                        cout << "Invalid Entry. Enter Y or N: ";
+                        cin >> another;
+                    }*/
+                }
+            }
         else if(category == "2"){
             string c2;
             cout << "1: Raising to a power" <<  endl
@@ -93,7 +121,7 @@ int main() {
             cout << "Invalid Entry. Enter Y or N: ";
             getline(cin, again);
         }
-        
     }
     return 0;
+}
 }

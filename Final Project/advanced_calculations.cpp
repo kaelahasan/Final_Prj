@@ -13,6 +13,7 @@ int power(int a, int x){
     for(int i =0; i<x; i++){
         ans*=a;
     }
+    return ans; 
 }
     
 int factorial(int n){
