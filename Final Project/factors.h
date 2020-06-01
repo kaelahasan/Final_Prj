@@ -15,7 +15,7 @@ using namespace std;
 class factor {
 public:
     factor(int num);
-    void get_factors();
+    vector<int> get_factors();
     int gcf(factor fac); 
 private:
     vector<int> f;

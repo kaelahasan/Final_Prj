@@ -22,15 +22,9 @@ factor::factor(int num){
     }
 }
 
-void factor::get_factors(){
+vector<int> factor::get_factors(){
     
-    cout << "The factors of " << n << " are:";
-    for(int i =0; i<f.size(); i++){
-        cout << " " << f[i];
-        if (i != f.size() -1){
-            cout << ",";
-        }
-    }
+    return f;
 }
 
 int factor:: gcf(factor fac){
