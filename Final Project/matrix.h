@@ -18,7 +18,7 @@ public:
     matrix operator - (matrix& x);
     matrix operator * (matrix& x);
     matrix transpose();
-    matrix determinant();
+    double determinant();
     matrix inverse();
 private:
     int row_size;

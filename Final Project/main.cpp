@@ -370,7 +370,7 @@ int main() {
         else if(category == "5"){
             string c5;
             cout << "1: Factors" << endl;
-            cout << "2: Greatest Common Factor (GCF)";
+            cout << "2: Greatest Common Factor (GCF)" << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c5);
             if(c5 == "1"){
@@ -386,6 +386,7 @@ int main() {
                         cout << ",";
                     }
                 }
+                cout << endl;
             }
             else if(c5 == "2"){
                 int n1;
@@ -397,7 +398,7 @@ int main() {
                 factor f1 = factor(n1);
                 factor f2 = factor(n2);
                 int gcf = f1.gcf(f2);
-                cout << "The GCF of " << n1 << " and " << n2 << " is " << gcf;
+                cout << "The GCF of " << n1 << " and " << n2 << " is " << gcf << endl;
             }
         }
         else if(category == "6"){
@@ -437,6 +438,17 @@ int main() {
                  << "6: Inverse (Only 2 by 2 matrices)" << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c7);
+            if(c7 == "1"){
+                int m;
+                int n;
+                cout << "Note, in order to add matrices they must have the same dimensions" << endl;
+                cout << "To construct a m by n matrix: " << endl;
+                cout << "Enter number of rows m: ";
+                cin >> m;
+                cout << "Enter number of columns n: ";
+                cin >> n;
+                
+            }
         }
         else{
             cout << "Invalid Entry. Enter a number from 1-7 corresponding th othe above categories: ";

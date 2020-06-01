@@ -57,3 +57,38 @@ matrix matrix::operator * (matrix& x){
     return mult;
 }
 
+matrix matrix::transpose(){
+    matrix t(col_size, row_size);
+    for(int i = 0; i<t.col_size; i++){
+        for(int j = 0; j<t.row_size; j++){
+            t.m[i][j] = m[j][i];
+        }
+    }
+    return t; 
+}
+double matrix::determinant(){
+    if(row_size == 2 && col_size == 2){
+        return (m[1][1]*m[2][2]) - (m[1][2]*m[2][1]);
+    }
+    else{
+        return -1.0; //fix this condition
+    }
+}
+
+matrix matrix::inverse(){
+    matrix i(2,2);
+    if(row_size == 2 && col_size == 2){
+        double a = 1.0/determinant();
+        i.m[1][1] = a*m[2][2];
+        i.m[1][2] = a*-1*m[1][2];
+        i.m[2][1] = a*=1*m[2][1];
+        i.m[2][2] = a*m[1][1];
+        return i;
+            
+    }
+    else{
+        return i; //fix this condition
+    }
+}
+
+
