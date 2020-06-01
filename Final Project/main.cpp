@@ -224,6 +224,72 @@ int main() {
                  << "4: Division" << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c3);
+            if(c3 == "1"){
+                int n1;
+                int n2;
+                int d1;
+                int d2;
+                cout << "To calculate (n1/d1) + (n2/d2): " << endl;
+                cout << "Enter the first numerator n1: ";
+                cin >> n1;
+                cout << endl << "Enter the first denominator d1: ";
+                cin >> d1;
+                cout << endl << "Enter the second numerator n2: ";
+                cin >> n2;
+                cout << endl << "Enter the second denominator d2: ";
+                cin >> d2;
+                //cout << "(" << n1 << "/" << d1 << ") + (" << n2 << "/" << d2 << " = " << fraction(n1, d1)+fraction(n2, d2);
+                //need to fix output
+            }
+            else if(c3 == "2"){
+                int n1;
+                int n2;
+                int d1;
+                int d2;
+                cout << "To calculate (n1/d1) - (n2/d2): " << endl;
+                cout << "Enter the first numerator n1: ";
+                cin >> n1;
+                cout << endl << "Enter the first denominator d1: ";
+                cin >> d1;
+                cout << endl << "Enter the second numerator n2: ";
+                cin >> n2;
+                cout << endl << "Enter the second denominator d2: ";
+                cin >> d2;
+               // cout << "(" << n1 << "/" << d1 << ") - (" << n2 << "/" << d2 << " = " << fraction(n1, d1) - fraction(n2, d2);
+                //need to fix output
+            }
+            else if(c3 == "3"){
+                int n1;
+                int n2;
+                int d1;
+                int d2;
+                cout << "To calculate (n1/d1) * (n2/d2): " << endl;
+                cout << "Enter the first numerator n1: ";
+                cin >> n1;
+                cout << endl << "Enter the first denominator d1: ";
+                cin >> d1;
+                cout << endl << "Enter the second numerator n2: ";
+                cin >> n2;
+                cout << endl << "Enter the second denominator d2: ";
+                cin >> d2;
+               // cout << "(" << n1 << "/" << d1 << ") * (" << n2 << "/" << d2 << " = " << fraction(n1, d1) * fraction(n2, d2);
+            }
+            else if(c3 == "4"){
+                int n1;
+                int n2;
+                int d1;
+                int d2;
+                cout << "To calculate (n1/d1) / (n2/d2): " << endl;
+                cout << "Enter the first numerator n1: ";
+                cin >> n1;
+                cout << endl << "Enter the first denominator d1: ";
+                cin >> d1;
+                cout << endl << "Enter the second numerator n2: ";
+                cin >> n2;
+                cout << endl << "Enter the second denominator d2: ";
+                cin >> d2;
+                //cout << "(" << n1 << "/" << d1 << ") / (" << n2 << "/" << d2 << " = " << fraction(n1, d1) / fraction(n2, d2);
+            }
 
         }
         else if(category == "4"){
@@ -234,6 +300,71 @@ int main() {
                  << "4: Division" << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c4);
+            if(c4 == "1"){
+                double a;
+                double b;
+                double c;
+                double d;
+                cout << "To calculate a+bi + c+di: " << endl;
+                cout << "Enter the real part of the first number a: ";
+                cin >> a;
+                cout << endl << "Enter the imaginary part of the first number b: ";
+                cin >> b;
+                cout << endl << "Enter the real part of the second number c: ";
+                cin >> c;
+                cout << endl << "Enter the imaginary part of the second number d: ";
+                cin >> d;
+                // cout << a << "+" << b << "i + " << c << "+" << d << "i = " << complex_number(a, b) + complex_number(c, d);
+            }
+            else if(c4 == "2"){
+                double a;
+                double b;
+                double c;
+                double d;
+                cout << "To calculate a+bi - c+di: " << endl;
+                cout << "Enter the real part of the first number a: ";
+                cin >> a;
+                cout << endl << "Enter the imaginary part of the first number b: ";
+                cin >> b;
+                cout << endl << "Enter the real part of the second number c: ";
+                cin >> c;
+                cout << endl << "Enter the imaginary part of the second number d: ";
+                cin >> d;
+                // cout << a << "+" << b << "i - " << c << "+" << d << "i = " << complex_number(a, b) - complex_number(c, d);
+                //can add if statement to determine if it should be a+bi or a-bi
+            }
+            else if(c4 == "3"){
+                double a;
+                double b;
+                double c;
+                double d;
+                cout << "To calculate (a+bi) * (c+di): " << endl;
+                cout << "Enter the real part of the first number a: ";
+                cin >> a;
+                cout << endl << "Enter the imaginary part of the first number b: ";
+                cin >> b;
+                cout << endl << "Enter the real part of the second number c: ";
+                cin >> c;
+                cout << endl << "Enter the imaginary part of the second number d: ";
+                cin >> d;
+                // cout <<  "(" << a << "+" << b << "i * " << c << "+" << d << "i = " << complex_number(a, b) * complex_number(c, d);
+            }
+            else if(c4 == "4"){
+                double a;
+                double b;
+                double c;
+                double d;
+                cout << "To calculate (a+bi)/(c+di): " << endl;
+                cout << "Enter the real part of the first number a: ";
+                cin >> a;
+                cout << endl << "Enter the imaginary part of the first number b: ";
+                cin >> b;
+                cout << endl << "Enter the real part of the second number c: ";
+                cin >> c;
+                cout << endl << "Enter the imaginary part of the second number d: ";
+                cin >> d;
+                // cout << "(" << a << "+" << b << "i)/(" << c << "+" << d << "i) = " << complex_number(a, b) / complex_number(c, d);
+            }
         }
         else if(category == "5"){
             string c5;

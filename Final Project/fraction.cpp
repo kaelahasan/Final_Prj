@@ -38,3 +38,7 @@ fraction fraction::operator / (fraction& x){
     return fraction(n/gcd(n,d), d/gcd(n,d));
     
 }
+
+void fraction:: operator << (fraction& x){
+    cout << num << "/" << denom;
+}

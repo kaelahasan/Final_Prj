@@ -27,6 +27,7 @@ public:
     fraction operator - (fraction& x);
     fraction operator * (fraction& x);
     fraction operator / (fraction& x);
+    void operator << (fraction& x);
     int gcd(int n, int d);
 private:
     int num;
