@@ -10,16 +10,10 @@ matrix::matrix(int r, int c){
     m = _m; 
 }
 
-matrix::matrix(int r, int c, istream& stream){
+matrix::matrix(int r, int c, vector<vector<double>> _m){
     row_size = r;
     col_size = c;
-    double n;
-    for(int i = 0; i<col_size; i++){
-        for(int j =0; j< row_size; j++){
-            stream >> n;
-            m[i][j] = n;
-        }
-    }
+    m = _m; 
 }
 
 matrix matrix::operator + (matrix& x){
@@ -91,4 +85,22 @@ matrix matrix::inverse(){
     }
 }
 
+void matrix::print(){
+    cout << "___";
+    for(int k = 0; k<col_size; k++){
+        cout << "   ";
+    }
+    cout << "___"; 
+    for(int i = 0; i<col_size; i++){
+        for(int j = 0; j<row_size; j++){
+            cout << m[i][j];
+        }
+        cout << endl << "|";
+    }
+    cout << "___";
+    for(int k = 0; k<col_size; k++){
+        cout << "   ";
+    }
+    cout << "___";
+}
 

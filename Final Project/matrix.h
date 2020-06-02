@@ -13,7 +13,8 @@ public:
         col_size = 0;
     }
     matrix(int r, int c);
-    matrix(int r, int c, istream& stream);
+    matrix(int r, int c, vector<vector<double>> _m);
+    void print(); 
     matrix operator + (matrix& x);
     matrix operator - (matrix& x);
     matrix operator * (matrix& x);

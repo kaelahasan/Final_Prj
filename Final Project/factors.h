@@ -16,7 +16,7 @@ class factor {
 public:
     factor(int num);
     vector<int> get_factors();
-    int gcf(factor fac); 
+    int gcf(factor fac);
 private:
     vector<int> f;
     int n; 
