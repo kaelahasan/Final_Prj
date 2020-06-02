@@ -32,3 +32,24 @@ complex_number complex_number::operator / (complex_number& x){
     complex_number quotient (real,imag);
     return quotient;
 }
+
+void complex_number::print(){
+    cout << a;
+    if(b<0.0){
+        if(b==-1.0){
+            cout << "-i";
+        }
+        else{
+            cout << "-" << -1*b << "i";
+        }
+    }
+    else if(b>0.0){
+        if(b==1.0){
+            cout << "+i";
+        }
+        else{
+            cout << "+" << b << "i";
+        }
+    }
+
+}

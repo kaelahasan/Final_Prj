@@ -23,6 +23,7 @@ public:
     complex_number operator - (complex_number& x);
     complex_number operator * (complex_number& x);
     complex_number operator / (complex_number& x);
+    void print(); 
 private:
     double a;
     double b;

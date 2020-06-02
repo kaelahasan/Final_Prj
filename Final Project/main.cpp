@@ -20,10 +20,11 @@ int main() {
              << "4: Complex Numbers" << endl
              << "5: Factors" << endl
              << "6: Multiples" << endl
-             << "7: Matrices" << endl << endl;
+             << "7: Matrices" << endl;
         string category;
         cout << "Please enter the number corresponding to the category you would like to choose: "; 
         getline(cin, category);
+        cout << endl;
         if(category == "1"){
             string c1;
             cout << "1: Addition" <<  endl
@@ -32,6 +33,7 @@ int main() {
                  << "4: Division" << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c1);
+            cout << endl;
             if (c1 == "1"){
                 double n1;
                 double n2;
@@ -235,12 +237,16 @@ int main() {
                 cin >> n1;
                 cout << endl << "Enter the first denominator d1: ";
                 cin >> d1;
+                fraction f1(n1, d1);
                 cout << endl << "Enter the second numerator n2: ";
                 cin >> n2;
                 cout << endl << "Enter the second denominator d2: ";
                 cin >> d2;
-                //cout << "(" << n1 << "/" << d1 << ") + (" << n2 << "/" << d2 << " = " << fraction(n1, d1)+fraction(n2, d2);
-                //need to fix output
+                fraction f2(n2, d2);
+                fraction sum = f1+f2;
+                cout << n1 << "/" << d1 << " + " << n2 << "/" << d2 << " = ";
+                sum.print();
+                cout << endl;
             }
             else if(c3 == "2"){
                 int n1;
@@ -252,12 +258,16 @@ int main() {
                 cin >> n1;
                 cout << endl << "Enter the first denominator d1: ";
                 cin >> d1;
+                fraction f1(n1, d1);
                 cout << endl << "Enter the second numerator n2: ";
                 cin >> n2;
                 cout << endl << "Enter the second denominator d2: ";
                 cin >> d2;
-               // cout << "(" << n1 << "/" << d1 << ") - (" << n2 << "/" << d2 << " = " << fraction(n1, d1) - fraction(n2, d2);
-                //need to fix output
+                fraction f2(n2, d2);
+                fraction diff = f1-f2;
+                cout << n1 << "/" << d1 << " - " << n2 << "/" << d2 << " = ";
+                diff.print();
+                cout << endl;
             }
             else if(c3 == "3"){
                 int n1;
@@ -269,11 +279,16 @@ int main() {
                 cin >> n1;
                 cout << endl << "Enter the first denominator d1: ";
                 cin >> d1;
+                fraction f1(n1, d1);
                 cout << endl << "Enter the second numerator n2: ";
                 cin >> n2;
                 cout << endl << "Enter the second denominator d2: ";
                 cin >> d2;
-               // cout << "(" << n1 << "/" << d1 << ") * (" << n2 << "/" << d2 << " = " << fraction(n1, d1) * fraction(n2, d2);
+                fraction f2(n2, d2);
+                fraction product = f1*f2;
+                cout << n1 << "/" << d1 << " * " << n2 << "/" << d2 << " = ";
+                product.print();
+                cout << endl;
             }
             else if(c3 == "4"){
                 int n1;
@@ -285,11 +300,16 @@ int main() {
                 cin >> n1;
                 cout << endl << "Enter the first denominator d1: ";
                 cin >> d1;
+                fraction f1(n1, d1);
                 cout << endl << "Enter the second numerator n2: ";
                 cin >> n2;
                 cout << endl << "Enter the second denominator d2: ";
                 cin >> d2;
-                //cout << "(" << n1 << "/" << d1 << ") / (" << n2 << "/" << d2 << " = " << fraction(n1, d1) / fraction(n2, d2);
+                fraction f2(n2, d2);
+                fraction quot = f1+f2;
+                cout << n1 << "/" << d1 << " / " << n2 << "/" << d2 << " = ";
+                quot.print();
+                cout << endl;
             }
 
         }
@@ -298,7 +318,7 @@ int main() {
             cout << "1: Addition" <<  endl
                  << "2: Subtraction" << endl
                  << "3: Multiplication" << endl
-                 << "4: Division" << endl;
+            << "4: Division" << endl << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c4);
             if(c4 == "1"){
@@ -309,13 +329,22 @@ int main() {
                 cout << "To calculate a+bi + c+di: " << endl;
                 cout << "Enter the real part of the first number a: ";
                 cin >> a;
-                cout << endl << "Enter the imaginary part of the first number b: ";
+                cout << "Enter the imaginary part of the first number b: ";
                 cin >> b;
+                complex_number c1(a, b);
                 cout << endl << "Enter the real part of the second number c: ";
                 cin >> c;
-                cout << endl << "Enter the imaginary part of the second number d: ";
+                cout << "Enter the imaginary part of the second number d: ";
                 cin >> d;
-                // cout << a << "+" << b << "i + " << c << "+" << d << "i = " << complex_number(a, b) + complex_number(c, d);
+                complex_number c2(c,d);
+                complex_number sum = c1 + c2;
+                
+                c1.print();
+                cout << " + ";
+                c2.print();
+                cout << " = ";
+                sum.print();
+                cout << endl;
             }
             else if(c4 == "2"){
                 double a;
@@ -325,14 +354,22 @@ int main() {
                 cout << "To calculate a+bi - c+di: " << endl;
                 cout << "Enter the real part of the first number a: ";
                 cin >> a;
-                cout << endl << "Enter the imaginary part of the first number b: ";
+                cout << "Enter the imaginary part of the first number b: ";
                 cin >> b;
+                complex_number c1(a, b);
                 cout << endl << "Enter the real part of the second number c: ";
                 cin >> c;
-                cout << endl << "Enter the imaginary part of the second number d: ";
+                cout << "Enter the imaginary part of the second number d: ";
                 cin >> d;
-                // cout << a << "+" << b << "i - " << c << "+" << d << "i = " << complex_number(a, b) - complex_number(c, d);
-                //can add if statement to determine if it should be a+bi or a-bi
+                complex_number c2(c,d);
+                complex_number diff = c1 - c2;
+                
+                c1.print();
+                cout << " - ";
+                c2.print();
+                cout << " = ";
+                diff.print();
+                cout << endl;
             }
             else if(c4 == "3"){
                 double a;
@@ -342,13 +379,22 @@ int main() {
                 cout << "To calculate (a+bi) * (c+di): " << endl;
                 cout << "Enter the real part of the first number a: ";
                 cin >> a;
-                cout << endl << "Enter the imaginary part of the first number b: ";
+                cout << "Enter the imaginary part of the first number b: ";
                 cin >> b;
+                complex_number c1(a, b);
                 cout << endl << "Enter the real part of the second number c: ";
                 cin >> c;
-                cout << endl << "Enter the imaginary part of the second number d: ";
+                cout << "Enter the imaginary part of the second number d: ";
                 cin >> d;
-                // cout <<  "(" << a << "+" << b << "i * " << c << "+" << d << "i = " << complex_number(a, b) * complex_number(c, d);
+                complex_number c2(c,d);
+                complex_number product = c1 * c2;
+                
+                c1.print();
+                cout << " * ";
+                c2.print();
+                cout << " = ";
+                product.print();
+                cout << endl;
             }
             else if(c4 == "4"){
                 double a;
@@ -358,13 +404,22 @@ int main() {
                 cout << "To calculate (a+bi)/(c+di): " << endl;
                 cout << "Enter the real part of the first number a: ";
                 cin >> a;
-                cout << endl << "Enter the imaginary part of the first number b: ";
+                cout << "Enter the imaginary part of the first number b: ";
                 cin >> b;
+                complex_number c1(a, b);
                 cout << endl << "Enter the real part of the second number c: ";
                 cin >> c;
-                cout << endl << "Enter the imaginary part of the second number d: ";
+                cout << "Enter the imaginary part of the second number d: ";
                 cin >> d;
-                // cout << "(" << a << "+" << b << "i)/(" << c << "+" << d << "i) = " << complex_number(a, b) / complex_number(c, d);
+                complex_number c2(c,d);
+                complex_number quot = c1 / c2;
+                
+                c1.print();
+                cout << " / ";
+                c2.print();
+                cout << " = ";
+                quot.print();
+                cout << endl;
             }
         }
         else if(category == "5"){

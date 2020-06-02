@@ -39,6 +39,6 @@ fraction fraction::operator / (fraction& x){
     
 }
 
-void fraction:: operator << (fraction& x){
+void fraction:: print(){
     cout << num << "/" << denom;
 }
