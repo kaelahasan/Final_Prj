@@ -76,18 +76,18 @@
 			isa = PBXGroup;
 			children = (
 				C976FE802461C8C10047E247 /* main.cpp */,
-				C9131291248327C50020AA04 /* complex_number.h */,
-				C913128E248327AD0020AA04 /* complex_number.cpp */,
 				C913129D24849D860020AA04 /* advanced_calculations.h */,
 				C913129B24849D680020AA04 /* advanced_calculations.cpp */,
 				C913129424836D9D0020AA04 /* fraction.h */,
 				C913129224836D8F0020AA04 /* fraction.cpp */,
-				C9131295248372890020AA04 /* matrix.h */,
-				C9131296248373C00020AA04 /* matrix.cpp */,
+				C9131291248327C50020AA04 /* complex_number.h */,
+				C913128E248327AD0020AA04 /* complex_number.cpp */,
 				C913129824844D170020AA04 /* factors.h */,
 				C913129924844D2D0020AA04 /* factors.cpp */,
 				C913129E2484A2A20020AA04 /* multiples.h */,
 				C913129F2484A2B60020AA04 /* multiples.cpp */,
+				C9131295248372890020AA04 /* matrix.h */,
+				C9131296248373C00020AA04 /* matrix.cpp */,
 			);
 			path = "Final Project";
 			sourceTree = "<group>";

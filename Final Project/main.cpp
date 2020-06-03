@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath> //only used for sqrt function
 #include "complex_number.h"
 #include "advanced_calculations.h"
 #include "fraction.h"
@@ -25,7 +26,7 @@ int main() {
         cout << "Please enter the number corresponding to the category you would like to choose: "; 
         getline(cin, category);
         cout << endl;
-        if(category == "1"){
+        if(category == "1"){ //Basic Arithmetic
             string c1;
             cout << "1: Addition" <<  endl
                  << "2: Subtraction" << endl
@@ -34,7 +35,7 @@ int main() {
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c1);
             cout << endl;
-            if (c1 == "1"){
+            if (c1 == "1"){ //Addition
                 double n1;
                 double n2;
                 string another = "y";
@@ -49,7 +50,7 @@ int main() {
                 cout << "Would you like to add another number? Enter Y or N: ";
                 cin >> another;
                 double n;
-                while(another == "Y" || another == "y"){
+                while(another == "Y" || another == "y"){ //user can continue to add numbers
                     
                     cout << "Please enter your next number: ";
                     cin >> n;
@@ -63,7 +64,7 @@ int main() {
                     }
                 }
             }
-            else if(c1 == "2"){
+            else if(c1 == "2"){ //Subtraction
                 double n1;
                 double n2;
                 string another = "y";
@@ -78,7 +79,7 @@ int main() {
                 cout << "Would you like to subtract another number? Enter Y or N: ";
                 cin >> another;
                 double n;
-                while(another == "Y" || another == "y"){
+                while(another == "Y" || another == "y"){ //user can continue to subtract numbers
                     
                     cout << "Please enter your next number: ";
                     cin >> n;
@@ -92,7 +93,7 @@ int main() {
                     }
                 }
             }
-            else if(c1 == "3"){
+            else if(c1 == "3"){ //mutliplication
                 double n1;
                 double n2;
                 string another = "y";
@@ -107,7 +108,7 @@ int main() {
                 cout << "Would you like to multiply another number? Enter Y or N: ";
                 cin >> another;
                 double n;
-                while(another == "Y" || another == "y"){
+                while(another == "Y" || another == "y"){ //user can continue to multiply numbers
                     
                     cout << "Please enter your next number: ";
                     cin >> n;
@@ -121,7 +122,7 @@ int main() {
                     }
                 }
             }
-            else if(c1 == "4"){
+            else if(c1 == "4"){ //division
                 double n1;
                 double n2;
                 string another = "y";
@@ -136,7 +137,7 @@ int main() {
                 cout << "Would you like to divide by another number? Enter Y or N: ";
                 cin >> another;
                 double n;
-                while(another == "Y" || another == "y"){
+                while(another == "Y" || another == "y"){ //user can continue to divide numbers
                     
                     cout << "Please enter your next number: ";
                     cin >> n;
@@ -162,7 +163,7 @@ int main() {
                  << "6: Absolute value" << endl;
             cout << "Enter the number corresponding to the category you would like to choose: ";
             getline(cin, c2);
-            if(c2 == "1"){
+            if(c2 == "1"){ //raising to a power
                 double b;
                 double x;
                 cout << "To calculate b^x: " << endl;
@@ -173,22 +174,27 @@ int main() {
                 
                 cout << b << "^" << x << " = " << power(b, x) << endl;
             }
-            else if(c2 == "2"){
+            else if(c2 == "2"){ //square root (taken from cmath library)
                 double s;
                 
                 cout << "Enter the number you would like to square root: ";
                 cin >> s;
-                //add cmath sqrt function
+                while(s<0){
+                    cout << "Outside the domain of the square root function. " << endl;
+                    cout << "Enter a positive number: ";
+                    cin >> s;
+                }
+                cout << endl << "The square root of " << s << " is: " << sqrt(s) << endl;
                 
             }
-            else if(c2 == "3"){
+            else if(c2 == "3"){ //factorial
                 int n;
                 cout << "To calculation n!: " << endl;
                 cout << "Enter n ";
                 cin >> n;
                 cout << endl << n << "! is: " << factorial(n) << endl;
             }
-            else if(c2 == "4"){
+            else if(c2 == "4"){ //combination
                 int n;
                 int r;
                 cout << "To calculate C(n,r): " << endl;
@@ -199,7 +205,7 @@ int main() {
                 cout << "C(n,r) = " << combination(n, r) << endl;
                 
             }
-            else if(c2 == "5"){
+            else if(c2 == "5"){ //permutation
                 int n;
                 int r;
                 cout << "To calculate P(n,r): " << endl;
@@ -210,7 +216,7 @@ int main() {
                 cout << "P(n,r) = " << permutation(n, r) << endl;
     
             }
-            else if(c2 == "6"){
+            else if(c2 == "6"){ //absolute value
                 double x;
                 cout << "To calculate |x|, enter x: ";
                 cin >> x;
@@ -219,7 +225,7 @@ int main() {
             
         
         }
-        else if(category == "3"){
+        else if(category == "3"){ //Fractions
             string c3;
             cout << "1: Addition" <<  endl
                  << "2: Subtraction" << endl
@@ -227,11 +233,12 @@ int main() {
                  << "4: Division" << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c3);
-            if(c3 == "1"){
+            if(c3 == "1"){ //Addition
                 int n1;
                 int n2;
                 int d1;
                 int d2;
+                string another = "y";
                 cout << "To calculate (n1/d1) + (n2/d2): " << endl;
                 cout << "Enter the first numerator n1: ";
                 cin >> n1;
@@ -246,13 +253,38 @@ int main() {
                 fraction sum = f1+f2;
                 cout << n1 << "/" << d1 << " + " << n2 << "/" << d2 << " = ";
                 sum.print();
+                
+                
+                cout << endl << "Would you like to add another fraction? Enter Y or N: ";
+                cin >> another;
+                int num;
+                int denom;
+                while(another == "Y" || another == "y"){ //user can continue to add numbers
+                    
+                    cout << "Please enter your next numerator: ";
+                    cin >> num;
+                    cout << "Please enter your next denominator: ";
+                    cin >> denom;
+                    fraction f3(num, denom);
+                    sum= sum+f3;
+                    cout << "Your sum is: ";
+                    sum.print();
+                    cout << endl << "Would you like to add another number? Enter Y or N: ";
+                    cin >> another;
+                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
+                        cout << "Invalid Entry. Enter Y or N: ";
+                        cin >> another;
+                    }
+                
                 cout << endl;
+                }
             }
             else if(c3 == "2"){
                 int n1;
                 int n2;
                 int d1;
                 int d2;
+                string another = "y";
                 cout << "To calculate (n1/d1) - (n2/d2): " << endl;
                 cout << "Enter the first numerator n1: ";
                 cin >> n1;
@@ -267,13 +299,37 @@ int main() {
                 fraction diff = f1-f2;
                 cout << n1 << "/" << d1 << " - " << n2 << "/" << d2 << " = ";
                 diff.print();
+                
+                cout << endl << "Would you like to subtract another fraction? Enter Y or N: ";
+                cin >> another;
+                int num;
+                int denom;
+                while(another == "Y" || another == "y"){ //user can continue to add numbers
+                    
+                    cout << "Please enter your next numerator: ";
+                    cin >> num;
+                    cout << "Please enter your next denominator: ";
+                    cin >> denom;
+                    fraction f3(num, denom);
+                    diff= diff-f3;
+                    cout << "Your difference is: ";
+                    diff.print();
+                    cout << endl << "Would you like to add another number? Enter Y or N: ";
+                    cin >> another;
+                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
+                        cout << "Invalid Entry. Enter Y or N: ";
+                        cin >> another;
+                    }
+                
                 cout << endl;
+                }
             }
             else if(c3 == "3"){
                 int n1;
                 int n2;
                 int d1;
                 int d2;
+                string another = "y";
                 cout << "To calculate (n1/d1) * (n2/d2): " << endl;
                 cout << "Enter the first numerator n1: ";
                 cin >> n1;
@@ -288,13 +344,37 @@ int main() {
                 fraction product = f1*f2;
                 cout << n1 << "/" << d1 << " * " << n2 << "/" << d2 << " = ";
                 product.print();
+                
+                cout << endl << "Would you like to multiply by another fraction? Enter Y or N: ";
+                cin >> another;
+                int num;
+                int denom;
+                while(another == "Y" || another == "y"){ //user can continue to add numbers
+                    
+                    cout << "Please enter your next numerator: ";
+                    cin >> num;
+                    cout << "Please enter your next denominator: ";
+                    cin >> denom;
+                    fraction f3(num, denom);
+                    product= product+f3;
+                    cout << "Your sum is: ";
+                    product.print();
+                    cout << endl << "Would you like to add another number? Enter Y or N: ";
+                    cin >> another;
+                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
+                        cout << "Invalid Entry. Enter Y or N: ";
+                        cin >> another;
+                    }
+                
                 cout << endl;
+                }
             }
             else if(c3 == "4"){
                 int n1;
                 int n2;
                 int d1;
                 int d2;
+                string another = "y";
                 cout << "To calculate (n1/d1) / (n2/d2): " << endl;
                 cout << "Enter the first numerator n1: ";
                 cin >> n1;
@@ -309,7 +389,30 @@ int main() {
                 fraction quot = f1+f2;
                 cout << n1 << "/" << d1 << " / " << n2 << "/" << d2 << " = ";
                 quot.print();
+                
+                cout << endl << "Would you like to divide by another fraction? Enter Y or N: ";
+                cin >> another;
+                int num;
+                int denom;
+                while(another == "Y" || another == "y"){ //user can continue to add numbers
+                    
+                    cout << "Please enter your next numerator: ";
+                    cin >> num;
+                    cout << "Please enter your next denominator: ";
+                    cin >> denom;
+                    fraction f3(num, denom);
+                    quot= quot+f3;
+                    cout << "Your quotient is: ";
+                    quot.print();
+                    cout << endl << "Would you like to add another number? Enter Y or N: ";
+                    cin >> another;
+                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
+                        cout << "Invalid Entry. Enter Y or N: ";
+                        cin >> another;
+                    }
+                
                 cout << endl;
+                }
             }
 
         }
@@ -326,6 +429,7 @@ int main() {
                 double b;
                 double c;
                 double d;
+                string another = "y";
                 cout << "To calculate a+bi + c+di: " << endl;
                 cout << "Enter the real part of the first number a: ";
                 cin >> a;
@@ -344,6 +448,28 @@ int main() {
                 c2.print();
                 cout << " = ";
                 sum.print();
+                
+                cout << endl << "Would you like to add another complex number? Enter Y or N: ";
+                cin >> another;
+                double real;
+                double imag;
+                while(another == "Y" || another == "y"){ //user can continue to add numbers
+                    
+                    cout << "Enter the real part of the number a: ";
+                    cin >> real;
+                    cout << "Enter the imaginary part of the number b: ";
+                    cin >> imag;
+                    complex_number c3(real ,imag);
+                    sum= sum+c3;
+                    cout << "Your sum is: ";
+                    sum.print();
+                    cout << endl << "Would you like to add another complex number? Enter Y or N: ";
+                    cin >> another;
+                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
+                        cout << "Invalid Entry. Enter Y or N: ";
+                        cin >> another;
+                    }
+                }
                 cout << endl;
             }
             else if(c4 == "2"){
@@ -351,6 +477,7 @@ int main() {
                 double b;
                 double c;
                 double d;
+                string another = "y";
                 cout << "To calculate a+bi - c+di: " << endl;
                 cout << "Enter the real part of the first number a: ";
                 cin >> a;
@@ -369,6 +496,27 @@ int main() {
                 c2.print();
                 cout << " = ";
                 diff.print();
+                cout << endl << "Would you like to subtract another complex number? Enter Y or N: ";
+                cin >> another;
+                double real;
+                double imag;
+                while(another == "Y" || another == "y"){ //user can continue to add numbers
+                    
+                    cout << "Enter the real part of the number a: ";
+                    cin >> real;
+                    cout << "Enter the imaginary part of the number b: ";
+                    cin >> imag;
+                    complex_number c3(real ,imag);
+                    diff= diff-c3;
+                    cout << "Your difference is: ";
+                    diff.print();
+                    cout << endl << "Would you like to subtract another complex number? Enter Y or N: ";
+                    cin >> another;
+                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
+                        cout << "Invalid Entry. Enter Y or N: ";
+                        cin >> another;
+                    }
+                }
                 cout << endl;
             }
             else if(c4 == "3"){
@@ -376,6 +524,7 @@ int main() {
                 double b;
                 double c;
                 double d;
+                string another = "y";
                 cout << "To calculate (a+bi) * (c+di): " << endl;
                 cout << "Enter the real part of the first number a: ";
                 cin >> a;
@@ -394,6 +543,28 @@ int main() {
                 c2.print();
                 cout << " = ";
                 product.print();
+                
+                cout << endl << "Would you like to multiply by another complex number? Enter Y or N: ";
+                cin >> another;
+                double real;
+                double imag;
+                while(another == "Y" || another == "y"){ //user can continue to add numbers
+                    
+                    cout << "Enter the real part of the number a: ";
+                    cin >> real;
+                    cout << "Enter the imaginary part of the number b: ";
+                    cin >> imag;
+                    complex_number c3(real ,imag);
+                    product= product*c3;
+                    cout << "Your sum is: ";
+                    product.print();
+                    cout << endl << "Would you like to multiply by another complex number? Enter Y or N: ";
+                    cin >> another;
+                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
+                        cout << "Invalid Entry. Enter Y or N: ";
+                        cin >> another;
+                    }
+                }
                 cout << endl;
             }
             else if(c4 == "4"){
@@ -401,6 +572,7 @@ int main() {
                 double b;
                 double c;
                 double d;
+                string another = "y";
                 cout << "To calculate (a+bi)/(c+di): " << endl;
                 cout << "Enter the real part of the first number a: ";
                 cin >> a;
@@ -419,6 +591,28 @@ int main() {
                 c2.print();
                 cout << " = ";
                 quot.print();
+                
+                cout << endl << "Would you like to divide by another complex number? Enter Y or N: ";
+                cin >> another;
+                double real;
+                double imag;
+                while(another == "Y" || another == "y"){ //user can continue to add numbers
+                    
+                    cout << "Enter the real part of the number a: ";
+                    cin >> real;
+                    cout << "Enter the imaginary part of the number b: ";
+                    cin >> imag;
+                    complex_number c3(real ,imag);
+                    quot= quot/c3;
+                    cout << "Your quotient is: ";
+                    quot.print();
+                    cout << endl << "Would you like to divide by another complex number? Enter Y or N: ";
+                    cin >> another;
+                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
+                        cout << "Invalid Entry. Enter Y or N: ";
+                        cin >> another;
+                    }
+                }
                 cout << endl;
             }
         }
