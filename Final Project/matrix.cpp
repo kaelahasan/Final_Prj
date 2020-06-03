@@ -65,7 +65,8 @@ double matrix::determinant(){
         return (m[1][1]*m[2][2]) - (m[1][2]*m[2][1]);
     }
     else{
-        return -1.0; //fix this condition
+        cout << "This is only for 2 by 2 matrices.";
+        exit(0);
     }
 }
 
@@ -81,7 +82,8 @@ matrix matrix::inverse(){
             
     }
     else{
-        return i; //fix this condition
+        cout << "This is only for 2 by 2 matrices."; 
+        exit(0); //fix this condition
     }
 }
 

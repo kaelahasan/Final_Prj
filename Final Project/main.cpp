@@ -697,16 +697,13 @@ int main() {
                 cout << "Enter number of columns n: ";
                 cin >> n;
                 
-                double r1;
-                double r2;
                 vector<vector<double>> m1;
                 vector<vector<double>> m2;
                 cout << "We will now construct the first matrix: " << endl;
                 for (int i = 0; i < n; i++){
                     cout << "Enter all elements in column " << i+1 << " seperated by a space: ";
                     for(int j = 0; j < n; j++){
-                        cin >> r1;
-                        m1[i][j] = r1;
+                        cin >> m1[i][j];
                     }
                 }
                 matrix m_1(m, n, m1);
@@ -715,9 +712,8 @@ int main() {
                 for (int i = 0; i < n; i++){
                     cout << "Enter all elements in column " << i << " seperated by a space: ";
                     for(int j = 0; j < n; j++){
-                        cin >> r2;
-                        m2[i][j] = r2;
-                    }
+                            cin >> m2[i][j];
+                        }
                 
                 }
                 matrix m_2(m, n, m2);
