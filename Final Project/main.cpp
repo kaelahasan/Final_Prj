@@ -172,7 +172,7 @@ int main() {
                 cout << endl << "Enter the power x: ";
                 cin >> x;
                 
-                cout << b << "^" << x << " = " << power(b, x) << endl;
+                cout << b << "^" << x << " = " << power(b, x);
             }
             else if(c2 == "2"){ //square root (taken from cmath library)
                 double s;
@@ -184,15 +184,15 @@ int main() {
                     cout << "Enter a positive number: ";
                     cin >> s;
                 }
-                cout << endl << "The square root of " << s << " is: " << sqrt(s) << endl;
+                cout << endl << "The square root of " << s << " is: " << sqrt(s);
                 
             }
             else if(c2 == "3"){ //factorial
                 int n;
                 cout << "To calculation n!: " << endl;
-                cout << "Enter n ";
+                cout << "Enter n: ";
                 cin >> n;
-                cout << endl << n << "! is: " << factorial(n) << endl;
+                cout << endl << n << "! is: " << factorial(n);
             }
             else if(c2 == "4"){ //combination
                 int n;
@@ -200,9 +200,9 @@ int main() {
                 cout << "To calculate C(n,r): " << endl;
                 cout << "Enter n: ";
                 cin >> n;
-                cout << endl << "Enter r: ";
+                cout  << "Enter r: ";
                 cin >> r;
-                cout << "C(n,r) = " << combination(n, r) << endl;
+                cout << endl << "C(n,r) = " << combination(n, r);
                 
             }
             else if(c2 == "5"){ //permutation
@@ -211,9 +211,9 @@ int main() {
                 cout << "To calculate P(n,r): " << endl;
                 cout << "Enter n: ";
                 cin >> n;
-                cout << endl << "Enter r: ";
+                cout << "Enter r: ";
                 cin >> r;
-                cout << "P(n,r) = " << permutation(n, r) << endl;
+                cout << endl << "P(n,r) = " << permutation(n, r);
     
             }
             else if(c2 == "6"){ //absolute value
@@ -222,7 +222,7 @@ int main() {
                 cin >> x;
                 cout << "|x| = " << absolute_value(x) << endl;
             }
-            
+            cout << endl;
         
         }
         else if(category == "3"){ //Fractions
@@ -356,7 +356,7 @@ int main() {
                     cout << "Please enter your next denominator: ";
                     cin >> denom;
                     fraction f3(num, denom);
-                    product= product+f3;
+                    product= product*f3;
                     cout << "Your sum is: ";
                     product.print();
                     cout << endl << "Would you like to add another number? Enter Y or N: ";
@@ -386,7 +386,7 @@ int main() {
                 cout << endl << "Enter the second denominator d2: ";
                 cin >> d2;
                 fraction f2(n2, d2);
-                fraction quot = f1+f2;
+                fraction quot = f1/f2;
                 cout << n1 << "/" << d1 << " / " << n2 << "/" << d2 << " = ";
                 quot.print();
                 
@@ -401,7 +401,7 @@ int main() {
                     cout << "Please enter your next denominator: ";
                     cin >> denom;
                     fraction f3(num, denom);
-                    quot= quot+f3;
+                    quot= quot/f3;
                     cout << "Your quotient is: ";
                     quot.print();
                     cout << endl << "Would you like to add another number? Enter Y or N: ";
@@ -628,7 +628,7 @@ int main() {
                 cin >> n;
                 factor f = factor(n);
                 vector<int> factors = f.get_factors();
-                cout << endl << "The factors of " << n << "are:";
+                cout << endl << "The factors of " << n << " are:";
                 for(int i = 0; i < factors.size(); i++){
                     cout << " " << factors[i];
                     if(i != factors.size()-1){
@@ -653,9 +653,10 @@ int main() {
         else if(category == "6"){
             string c6;
             cout << "1: Multiples" << endl;
-            cout << "2: Least Common Multiple (LCM)";
+            cout << "2: Least Common Multiple (LCM)" << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c6);
+            cout << endl;
             if(c6 == "1"){
                 int n;
                 int x;
@@ -673,7 +674,18 @@ int main() {
                         cout << ",";
                     }
                 }
-                
+                cout << endl;
+            }
+            else if(c6 == "2"){
+                int n1;
+                int n2;
+                cout << "Enter your first number: ";
+                cin >> n1;
+                cout << endl << "Enter your second number: ";
+                cin >> n2;
+                multiple m1(n1, 10);
+                int lcm = m1.lcm(n2);
+                cout << "The LCM of " << n1 << " and " << n2 << " is " << lcm << endl;
             }
         
         }
