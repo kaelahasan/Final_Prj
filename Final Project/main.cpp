@@ -712,18 +712,23 @@ int main() {
                 vector<vector<double>> m1;
                 vector<vector<double>> m2;
                 cout << "We will now construct the first matrix: " << endl;
+                for(int k =0; k<n; k++){
+                    m1.push_back(vector<double> (m));
+                }
                 for (int i = 0; i < n; i++){
-                    cout << "Enter all elements in column " << i+1 << " seperated by a space: ";
-                    for(int j = 0; j < n; j++){
+                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
+                    for(int j = 0; j < m; j++){
                         cin >> m1[i][j];
                     }
                 }
                 matrix m_1(m, n, m1);
-                
+                for(int l =0; l < n; l++){
+                    m2.push_back(vector<double> (m));
+                }
                 cout<< "We will now construct the second matrix: " << endl;
                 for (int i = 0; i < n; i++){
-                    cout << "Enter all elements in column " << i << " seperated by a space: ";
-                    for(int j = 0; j < n; j++){
+                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
+                    for(int j = 0; j < m; j++){
                             cin >> m2[i][j];
                         }
                 
@@ -731,10 +736,100 @@ int main() {
                 matrix m_2(m, n, m2);
                 matrix sum = m_1 + m_2;
                 m_1.print();
-                cout << endl << endl << "          +         ";
+                cout << endl << endl << "          +         " << endl;
                 m_2.print();
-                cout << endl << endl << "          =         ";
+                cout << endl << endl << "          =         " << endl;
                 sum.print();
+                cout << endl;
+            }
+            else if(c7 == "2"){
+                int m;
+                int n;
+                cout << "Note, in order to subtract matrices they must have the same dimensions" << endl;
+                cout << "To construct a m by n matrix: " << endl;
+                cout << "Enter number of rows m: ";
+                cin >> m;
+                cout << "Enter number of columns n: ";
+                cin >> n;
+                vector<vector<double>> m1;
+                vector<vector<double>> m2;
+                cout << "We will now construct the first matrix: " << endl;
+                for(int k =0; k<n; k++){
+                    m1.push_back(vector<double> (m));
+                }
+                for (int i = 0; i < n; i++){
+                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
+                    for(int j = 0; j < m; j++){
+                        cin >> m1[i][j];
+                    }
+                }
+                matrix m_1(m, n, m1);
+                for(int l =0; l < n; l++){
+                    m2.push_back(vector<double> (m));
+                }
+                cout<< "We will now construct the second matrix: " << endl;
+                for (int i = 0; i < n; i++){
+                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
+                    for(int j = 0; j < m; j++){
+                            cin >> m2[i][j];
+                        }
+                    
+                }
+                matrix m_2(m, n, m2);
+                matrix diff = m_1 - m_2;
+                m_1.print();
+                cout << endl << endl << "          -         " << endl;
+                m_2.print();
+                cout << endl << endl << "          =         " << endl;
+                diff.print();
+                cout << endl;
+
+            }
+            else if(c7 == "3"){
+                int m;
+                int n;
+                int p;
+                cout << "Note, in order to multiply matrices the column dimension of the first matrix must match the row dimension of the second matrix: (m x n) X (n x p) = n x p" << endl;
+                cout << "To construct the first m by n matrix: " << endl;
+                cout << "Enter number of rows m: ";
+                cin >> m;
+                cout << "Enter number of columns n: ";
+                cin >> n;
+                vector<vector<double>> m1;
+                vector<vector<double>> m2;
+                cout << "We will now construct the first matrix: " << endl;
+                for(int k =0; k<n; k++){
+                    m1.push_back(vector<double> (m));
+                }
+                for (int i = 0; i < n; i++){
+                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
+                    for(int j = 0; j < m; j++){
+                        cin >> m1[i][j];
+                    }
+                }
+                matrix m_1(m, n, m1);
+    
+                for(int l =0; l < n; l++){
+                    m2.push_back(vector<double> (m));
+                }
+                cout<< "We will now construct the second matrix: " << endl;
+                cout << "To construct an m x p matrix, enter the number of columns p: ";
+                cin >> p;
+                
+                for (int i = 0; i < p; i++){
+                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
+                    for(int j = 0; j < m; j++){
+                            cin >> m2[i][j];
+                        }
+                    
+                }
+                matrix m_2(m, n, m2);
+                matrix product = m_1 * m_2;
+                m_1.print();
+                cout << endl << endl << "          *         " << endl;
+                m_2.print();
+                cout << endl << endl << "          =         " << endl;
+                product.print();
                 cout << endl;
             }
         }

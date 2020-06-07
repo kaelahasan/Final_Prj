@@ -18,6 +18,9 @@ matrix::matrix(int r, int c, vector<vector<double>> _m){
 
 matrix matrix::operator + (matrix& x){
     matrix sum(row_size, col_size);
+    for(int k =0; k < col_size; k++){
+        sum.m.push_back(vector<double> (col_size));
+    }
     for(int i = 0; i<col_size; i++){
         for(int j =0; j< row_size; j++){
             sum.m[i][j]= m[i][j]+x.m[i][j];
@@ -28,6 +31,9 @@ matrix matrix::operator + (matrix& x){
 
 matrix matrix::operator - (matrix& x){
     matrix diff(row_size, col_size);
+    for(int k =0; k < col_size; k++){
+        diff.m.push_back(vector<double> (col_size));
+    }
     for(int i = 0; i<col_size; i++){
         for(int j =0; j< row_size; j++){
             diff.m[i][j]= m[i][j]-x.m[i][j];
@@ -38,14 +44,14 @@ matrix matrix::operator - (matrix& x){
 
 matrix matrix::operator * (matrix& x){
     matrix mult(row_size, x.col_size);
-    double temp = 0.0;
+    for(int k =0; k < col_size; k++){
+        mult.m.push_back(vector<double> (col_size));
+    }
     for(int i = 0; i<col_size; i++){
         for(int j =0; j< row_size; j++){
-            temp = 0.0;
             for (int k =0; k<col_size; k++){
-                temp+= m[i][j]*x.m[i][j];
+                mult.m[i][j]+= m[i][k]*x.m[k][j];
             }
-            mult.m[i][j] = temp;
         }
     }
     return mult;
@@ -53,6 +59,9 @@ matrix matrix::operator * (matrix& x){
 
 matrix matrix::transpose(){
     matrix t(col_size, row_size);
+    for(int k =0; k < col_size; k++){
+        t.m.push_back(vector<double> (col_size));
+    }
     for(int i = 0; i<t.col_size; i++){
         for(int j = 0; j<t.row_size; j++){
             t.m[i][j] = m[j][i];
@@ -72,6 +81,9 @@ double matrix::determinant(){
 
 matrix matrix::inverse(){
     matrix i(2,2);
+    for(int k =0; k < col_size; k++){
+        i.m.push_back(vector<double> (col_size));
+    }
     if(row_size == 2 && col_size == 2){
         double a = 1.0/determinant();
         i.m[1][1] = a*m[2][2];
@@ -88,21 +100,20 @@ matrix matrix::inverse(){
 }
 
 void matrix::print(){
-    cout << "___";
-    for(int k = 0; k<col_size; k++){
-        cout << "   ";
-    }
-    cout << "___"; 
+
     for(int i = 0; i<col_size; i++){
+        cout << "|";
         for(int j = 0; j<row_size; j++){
             cout << m[i][j];
+            if(j!=row_size-1){
+                cout << "   ";
+            }
         }
-        cout << endl << "|";
+        cout << "|";
+        if(i!=col_size -1){
+            cout << endl;
+        }
     }
-    cout << "___";
-    for(int k = 0; k<col_size; k++){
-        cout << "   ";
-    }
-    cout << "___";
+    
 }
 
