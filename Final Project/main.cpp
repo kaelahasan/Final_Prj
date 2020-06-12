@@ -53,59 +53,25 @@ int main() {
                 cout << "Please enter your next number: ";
                 cin >> n2;
                 cout << endl;
-                if(c1 == "1"){
-                    sum = n1+n2;
-                }
-                else if(c1 == "2"){
-                    diff = n1-n2;
-                }
-                else if(c1 == "3"){
-                   mult = n1*n2;
-                }
-                else if(c1 == "4"){
-                    div = n1/n2;
-                }
-                
-                cout << n1;;
-                if(c1 == "1"){
-                    cout << " + ";
-                }
-                else if(c1 == "2"){
-                    cout << " - ";
-                }
-                else if(c1 == "3"){
-                    cout << " * ";
-                }
-                else if(c1 == "4"){
-                    cout << " / ";
-                }
+                if(c1 == "1") sum = n1+n2;
+                else if(c1 == "2") diff = n1-n2;
+                else if(c1 == "3") mult = n1*n2;
+                else if(c1 == "4") div = n1/n2;
+                cout << n1;
+                if(c1 == "1") cout << " + ";
+                else if(c1 == "2") cout << " - ";
+                else if(c1 == "3") cout << " * ";
+                else if(c1 == "4") cout << " / ";
                 cout << n2 << " = ";
-                if(c1 == "1"){
-                    cout << sum;
-                }
-                else if(c1 == "2"){
-                    cout << diff;
-                }
-                else if(c1 == "3"){
-                    cout << mult;
-                }
-                else if(c1 == "5"){
-                    cout << div;
-                }
+                if(c1 == "1") cout << sum;
+                else if(c1 == "2") cout << diff;
+                else if(c1 == "3") cout << mult;
+                else if(c1 == "5") cout << div;
                 cout << endl << "Would you like to ";
-                if(c1 == "1"){
-                    cout << "add";
-                }
-                else if(c1 == "2"){
-                    cout << "subtract";
-                }
-                else if(c1 == "3"){
-                    cout << "multiply by";
-                }
-                else if(c1 == "5"){
-                    cout << "divide by";
-                }
-                
+                if(c1 == "1") cout << "add";
+                else if(c1 == "2") cout << "subtract";
+                else if(c1 == "3") cout << "multiply by";
+                else if(c1 == "5") cout << "divide by";
                 cout << " another number? Enter Y or N: ";
                 cin >> another;
                 double n;
@@ -231,18 +197,10 @@ int main() {
                 fraction div;
                 string another = "y";
                 cout << "To calculate (n1/d1) ";
-                if(c3 == "1"){
-                    cout << " + ";
-                }
-                else if(c3 == "2"){
-                    cout << " - ";
-                }
-                else if(c3 == "3"){
-                    cout << " * ";
-                }
-                else if(c3 == "4"){
-                    cout << " / ";
-                }
+                if(c3 == "1") cout << " + ";
+                else if(c3 == "2") cout << " - ";
+                else if(c3 == "3") cout << " * ";
+                else if(c3 == "4") cout << " / ";
                 cout << " (n2/d2): " << endl;
                 cout << "Enter the first numerator n1: ";
                 cin >> n1;
@@ -254,59 +212,26 @@ int main() {
                 cout << "Enter the second denominator d2: ";
                 cin >> d2;
                 fraction f2(n2, d2);
-                if(c3 == "1"){
-                    sum = f1+f2;;
-                }
-                else if(c3 == "2"){
-                    diff = f1-f2;
-;
-                }
-                else if(c3 == "3"){
-                    mult = f1*f2;
-                }
-                else if(c3 == "4"){
-                    div = f1/f2;
-                }
+                if(c3 == "1") sum = f1+f2;
+                else if(c3 == "2") diff = f1-f2;
+                else if(c3 == "3") mult = f1*f2;
+                else if(c3 == "4") div = f1/f2;
                 cout << n1 << "/" << d1;
-                if(c3 == "1"){
-                    cout << " + ";
-                }
-                else if(c3 == "2"){
-                    cout << " - ";
-                }
-                else if(c3 == "3"){
-                    cout << " * ";
-                }
-                else if(c3 == "4"){
-                    cout << " / ";
-                }
+                if(c3 == "1") cout << " + ";
+                else if(c3 == "2") cout << " - ";
+                else if(c3 == "3") cout << " * ";
+                else if(c3 == "4") cout << " / ";
                 cout << n2 << "/" << d2 << " = ";
-                if(c3 == "1"){
-                    sum.print();
-                }
-                else if(c3 == "2"){
-                    diff.print();
-                }
-                else if(c3 == "3"){
-                    mult.print();
-                }
-                else if(c3 == "4"){
-                    div.print();
-                }
+                if(c3 == "1") sum.print();
+                else if(c3 == "2") diff.print();
+                else if(c3 == "3") mult.print();
+                else if(c3 == "4") div.print();
                 
                 cout << endl << "Would you like to ";
-                if(c3 == "1"){
-                    cout << "add";
-                }
-                else if(c3 == "2"){
-                    cout << "subtract";
-                }
-                else if(c3 == "3"){
-                    cout << "multiply by";
-                }
-                else if(c3 == "5"){
-                    cout << "divide by";
-                }
+                if(c3 == "1") cout << "add";
+                else if(c3 == "2") cout << "subtract";
+                else if(c3 == "3") cout << "multiply by";
+                else if(c3 == "5") cout << "divide by";
                     
                 cout << " another fraction? Enter Y or N: ";
                 cin >> another;
