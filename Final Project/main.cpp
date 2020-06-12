@@ -220,119 +220,95 @@ int main() {
                  << "4: Division" << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c3);
-            if(c3 == "1"){ //Addition
+            if(c3 == "1" || c3 == "2" || c3 == "3" || c3 == "4"){ //Addition
                 int n1;
                 int n2;
                 int d1;
                 int d2;
+                fraction sum;
+                fraction diff;
+                fraction mult;
+                fraction div;
                 string another = "y";
-                cout << "To calculate (n1/d1) + (n2/d2): " << endl;
+                cout << "To calculate (n1/d1) ";
+                if(c3 == "1"){
+                    cout << " + ";
+                }
+                else if(c3 == "2"){
+                    cout << " - ";
+                }
+                else if(c3 == "3"){
+                    cout << " * ";
+                }
+                else if(c3 == "4"){
+                    cout << " / ";
+                }
+                cout << " (n2/d2): " << endl;
                 cout << "Enter the first numerator n1: ";
                 cin >> n1;
-                cout << endl << "Enter the first denominator d1: ";
+                cout << "Enter the first denominator d1: ";
                 cin >> d1;
                 fraction f1(n1, d1);
                 cout << endl << "Enter the second numerator n2: ";
                 cin >> n2;
-                cout << endl << "Enter the second denominator d2: ";
+                cout << "Enter the second denominator d2: ";
                 cin >> d2;
                 fraction f2(n2, d2);
-                fraction sum = f1+f2;
-                cout << n1 << "/" << d1 << " + " << n2 << "/" << d2 << " = ";
-                sum.print();
-                
-                
-                cout << endl << "Would you like to add another fraction? Enter Y or N: ";
-                cin >> another;
-                int num;
-                int denom;
-                while(another == "Y" || another == "y"){ //user can continue to add numbers
-                    
-                    cout << "Please enter your next numerator: ";
-                    cin >> num;
-                    cout << "Please enter your next denominator: ";
-                    cin >> denom;
-                    fraction f3(num, denom);
-                    sum= sum+f3;
-                    cout << "Your sum is: ";
+                if(c3 == "1"){
+                    sum = f1+f2;;
+                }
+                else if(c3 == "2"){
+                    diff = f1-f2;
+;
+                }
+                else if(c3 == "3"){
+                    mult = f1*f2;
+                }
+                else if(c3 == "4"){
+                    div = f1/f2;
+                }
+                cout << n1 << "/" << d1;
+                if(c3 == "1"){
+                    cout << " + ";
+                }
+                else if(c3 == "2"){
+                    cout << " - ";
+                }
+                else if(c3 == "3"){
+                    cout << " * ";
+                }
+                else if(c3 == "4"){
+                    cout << " / ";
+                }
+                cout << n2 << "/" << d2 << " = ";
+                if(c3 == "1"){
                     sum.print();
-                    cout << endl << "Would you like to add another number? Enter Y or N: ";
-                    cin >> another;
-                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
-                        cout << "Invalid Entry. Enter Y or N: ";
-                        cin >> another;
-                    }
-                
-                cout << endl;
                 }
-            }
-            else if(c3 == "2"){
-                int n1;
-                int n2;
-                int d1;
-                int d2;
-                string another = "y";
-                cout << "To calculate (n1/d1) - (n2/d2): " << endl;
-                cout << "Enter the first numerator n1: ";
-                cin >> n1;
-                cout << endl << "Enter the first denominator d1: ";
-                cin >> d1;
-                fraction f1(n1, d1);
-                cout << endl << "Enter the second numerator n2: ";
-                cin >> n2;
-                cout << endl << "Enter the second denominator d2: ";
-                cin >> d2;
-                fraction f2(n2, d2);
-                fraction diff = f1-f2;
-                cout << n1 << "/" << d1 << " - " << n2 << "/" << d2 << " = ";
-                diff.print();
-                
-                cout << endl << "Would you like to subtract another fraction? Enter Y or N: ";
-                cin >> another;
-                int num;
-                int denom;
-                while(another == "Y" || another == "y"){ //user can continue to add numbers
-                    
-                    cout << "Please enter your next numerator: ";
-                    cin >> num;
-                    cout << "Please enter your next denominator: ";
-                    cin >> denom;
-                    fraction f3(num, denom);
-                    diff= diff-f3;
-                    cout << "Your difference is: ";
+                else if(c3 == "2"){
                     diff.print();
-                    cout << endl << "Would you like to add another number? Enter Y or N: ";
-                    cin >> another;
-                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
-                        cout << "Invalid Entry. Enter Y or N: ";
-                        cin >> another;
-                    }
-                
-                cout << endl;
                 }
-            }
-            else if(c3 == "3"){
-                int n1;
-                int n2;
-                int d1;
-                int d2;
-                string another = "y";
-                cout << "To calculate (n1/d1) * (n2/d2): " << endl;
-                cout << "Enter the first numerator n1: ";
-                cin >> n1;
-                cout << endl << "Enter the first denominator d1: ";
-                cin >> d1;
-                fraction f1(n1, d1);
-                cout << endl << "Enter the second numerator n2: ";
-                cin >> n2;
-                cout << endl << "Enter the second denominator d2: ";
-                cin >> d2;
-                fraction f2(n2, d2);
-                fraction product = f1*f2;
-                cout << n1 << "/" << d1 << " * " << n2 << "/" << d2 << " = ";
-                product.print();
+                else if(c3 == "3"){
+                    mult.print();
+                }
+                else if(c3 == "4"){
+                    div.print();
+                }
                 
-                cout << endl << "Would you like to multiply by another fraction? Enter Y or N: ";
+                cout << endl << "Would you like to ";
+                if(c3 == "1"){
+                    cout << "add";
+                }
+                else if(c3 == "2"){
+                    cout << "subtract";
+                }
+                else if(c3 == "3"){
+                    cout << "multiply by";
+                }
+                else if(c3 == "5"){
+                    cout << "divide by";
+                }
+                    
+                cout << " another fraction? Enter Y or N: ";
                 cin >> another;
                 int num;
                 int denom;
@@ -343,54 +319,27 @@ int main() {
                     cout << "Please enter your next denominator: ";
                     cin >> denom;
                     fraction f3(num, denom);
-                    product= product*f3;
-                    cout << "Your sum is: ";
-                    product.print();
-                    cout << endl << "Would you like to add another number? Enter Y or N: ";
-                    cin >> another;
-                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
-                        cout << "Invalid Entry. Enter Y or N: ";
-                        cin >> another;
+                    if(c3 == "1"){
+                        sum= sum+f3;
+                        cout << "Your sum is: ";
+                        sum.print();
                     }
-                
-                cout << endl;
-                }
-            }
-            else if(c3 == "4"){
-                int n1;
-                int n2;
-                int d1;
-                int d2;
-                string another = "y";
-                cout << "To calculate (n1/d1) / (n2/d2): " << endl;
-                cout << "Enter the first numerator n1: ";
-                cin >> n1;
-                cout << endl << "Enter the first denominator d1: ";
-                cin >> d1;
-                fraction f1(n1, d1);
-                cout << endl << "Enter the second numerator n2: ";
-                cin >> n2;
-                cout << endl << "Enter the second denominator d2: ";
-                cin >> d2;
-                fraction f2(n2, d2);
-                fraction quot = f1/f2;
-                cout << n1 << "/" << d1 << " / " << n2 << "/" << d2 << " = ";
-                quot.print();
-                
-                cout << endl << "Would you like to divide by another fraction? Enter Y or N: ";
-                cin >> another;
-                int num;
-                int denom;
-                while(another == "Y" || another == "y"){ //user can continue to add numbers
+                    else if(c3 == "2"){
+                        diff= diff-f3;
+                        cout << "Your difference is: ";
+                        diff.print();
+                    }
+                    else if(c3 == "3"){
+                        mult= mult*f3;
+                        cout << "Your product is: ";
+                        mult.print();;
+                    }
+                    else if(c3 == "4"){
+                        div= div/f3;
+                        cout << "Your quotient is: ";
+                        div.print();;
+                    }
                     
-                    cout << "Please enter your next numerator: ";
-                    cin >> num;
-                    cout << "Please enter your next denominator: ";
-                    cin >> denom;
-                    fraction f3(num, denom);
-                    quot= quot/f3;
-                    cout << "Your quotient is: ";
-                    quot.print();
                     cout << endl << "Would you like to add another number? Enter Y or N: ";
                     cin >> another;
                     while(another != "Y" && another != "y" && another != "N" && another != "n"){
@@ -401,7 +350,6 @@ int main() {
                 cout << endl;
                 }
             }
-
         }
         else if(category == "4"){
             string c4;
