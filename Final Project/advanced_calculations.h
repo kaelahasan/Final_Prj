@@ -12,13 +12,9 @@
 using namespace std; 
 
 double power(double b, double x);
-    
 int factorial(int n);
-
 int permutation(int n, int r);
-
 int combination(int n, int r);
-
 double absolute_value(double n);
 
 #endif /* advanced_calculations_h */

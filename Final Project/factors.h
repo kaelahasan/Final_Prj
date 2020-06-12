@@ -10,6 +10,7 @@
 #define factors_h
 
 #include <iostream>
+//#include "print.h"
 using namespace std;
 
 class factor {

@@ -94,21 +94,27 @@ matrix matrix::inverse(){
     
 }
 
-void matrix::print(){
+void matrix::print_both(ostream &fout){
 
     for(int i = 0; i<col_size; i++){
         cout << "|";
+        fout << "|";
         for(int j = 0; j<row_size; j++){
             cout << m[i][j];
+            fout << m[i][j];
             if(j!=row_size-1){
                 cout << "   ";
+                fout << "   ";
             }
         }
         cout << "|";
+        fout << "|";
         if(i!=col_size -1){
-            cout << endl;
+            cout << "\n";
+            fout << "\n";
         }
     }
     
 }
+
 

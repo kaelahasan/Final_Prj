@@ -10,7 +10,6 @@
 #include "factors.h"
 #include "multiples.h"
 using namespace std;
-
 ofstream fout; //file output
 
 
@@ -19,10 +18,9 @@ void print(ostream &os1, ostream &os2, universal x){
     os1 << x;
     os2 << x;
 }
-
 int main() {
     fout.open("calculator.txt");
-    print(cout, fout, "Hello. This is an advanced calculator.\n");
+    print(cout, fout, "Hello. This is an advanced calculator.\n-----------------------------------------------------------\n");
     string again = "Y";
     while (again == "Y" || again == "y"){
         cout << "1: Basic Arithmetic\n";
@@ -35,7 +33,7 @@ int main() {
         string category;
         cout << "Please enter the number corresponding to the category you would like to choose: ";
         getline(cin, category);
-        print(cout, fout, "\n");
+        cout << endl;
         if(category == "1"){ //Basic Arithmetic
             string c1;
             cout << "1: Addition\n";
@@ -53,10 +51,10 @@ int main() {
                 double mult = 0.0;
                 double div = 0.0;
                 string another = "y";
-                if(c1 == "1") print <string> (cout, fout, "You chose addition\n");
-                else if(c1 == "2") print <string> (cout, fout, "You chose subtraction\n");
-                else if(c1 == "3") print <string> (cout, fout, "You chose multiplication\n");
-                else if(c1 == "4") print <string> (cout, fout, "You chose division\n");
+                if(c1 == "1") print <string> (cout, fout, "You chose addition.\n");
+                else if(c1 == "2") print <string> (cout, fout, "You chose subtraction.\n");
+                else if(c1 == "3") print <string> (cout, fout, "You chose multiplication.\n");
+                else if(c1 == "4") print <string> (cout, fout, "You chose division.\n");
                 cout << "Please enter your first number: ";
                 cin >> n1;
                 cout << "Please enter your next number: ";
@@ -89,34 +87,57 @@ int main() {
                     
                     cout << "Please enter your next number: ";
                     cin >> n;
+                    print<string>(cout, fout, "\n");
                     if(c1 == "1"){
+                        double temp = sum;
                         sum+=n;
-                        cout << "Your sum is: " << sum << endl;
+                        print<double>(cout, fout, temp);
+                        print <string> (cout, fout, " + ");
+                        print<double>(cout, fout, n);
+                        print <string> (cout, fout, " = ");
+                        print<double>(cout, fout, sum);
                     }
                     else if(c1 == "2"){
+                        double temp = diff;
                         diff-=n;
-                        cout << "Your difference is: " << diff << endl;
+                        print<double>(cout, fout, temp);
+                        print <string> (cout, fout, " - ");
+                        print<double>(cout, fout, n);
+                        print <string> (cout, fout, " = ");
+                        print<double>(cout, fout, diff);
                     }
                     else if(c1 == "3"){
+                        double temp = mult;
                         mult*=n;
-                        cout << "Your product is: " << mult << endl;
+                        print<double>(cout, fout, temp);
+                        print <string> (cout, fout, " * ");
+                        print<double>(cout, fout, n);
+                        print <string> (cout, fout, " = ");
+                        print<double>(cout, fout, mult);
                     }
                     else if(c1 == "4"){
+                        double temp = div;
                         div/=n;
-                        cout << "Your quotient is: " << div << endl;
+                        print<double>(cout, fout, temp);
+                        print <string> (cout, fout, " / ");
+                        print<double>(cout, fout, n);
+                        print <string> (cout, fout, " = ");
+                        print<double>(cout, fout, div);
                     }
                     
-                    cout << "Would you like to add another number? Enter Y or N: ";
+                    cout << endl << "Would you like to ";
+                    if(c1 == "1") cout << "add";
+                    else if(c1 == "2") cout << "subtract";
+                    else if(c1 == "3") cout << "multiply by";
+                    else if(c1 == "4") cout << "divide by";
+                    cout << " another number? Enter Y or N: ";
                     cin >> another;
                     while(another != "Y" && another != "y" && another != "N" && another != "n"){
                         cout << "Invalid Entry. Enter Y or N: ";
                         cin >> another;
                     }
                 }
-                if(c1 == "1") fout << "\nYour final sum is: " << sum << endl;
-                else if(c1 == "2") fout << "\nYour final difference is: " << diff << endl;
-                else if(c1 == "3") fout << "\nYour final product is: " << mult << endl;
-                else if(c1 == "4") fout << "\nYour final quotient is: " << div << endl;
+                print<string>(cout, fout, "\n");
             }
             
         }
@@ -200,7 +221,7 @@ int main() {
                 cout << "|x| = " << absolute_value(x) << endl;
                 fout << "|x| = " << absolute_value(x) << endl;
             }
-            print(cout, fout, "\n");
+            print<string>(cout, fout, "\n");
         
         }
         else if(category == "3"){ //Fractions
@@ -275,25 +296,42 @@ int main() {
                     cout << "Please enter your next denominator: ";
                     cin >> denom;
                     fraction f3(num, denom);
+                    fout << endl; 
                     if(c3 == "1"){
+                        fraction temp = sum;
                         sum= sum+f3;
-                        cout << "Your sum is: ";
-                        sum.print();
+                        temp.print_both(fout);
+                        print <string> (cout, fout, " + ");
+                        f3.print_both(fout);
+                        print <string> (cout, fout, " = ");
+                        sum.print_both(fout);
                     }
                     else if(c3 == "2"){
+                        fraction temp = diff;
                         diff= diff-f3;
-                        cout << "Your difference is: ";
-                        diff.print();
+                        temp.print_both(fout);
+                        print <string> (cout, fout, " - ");
+                        f3.print_both(fout);
+                        print <string> (cout, fout, " = ");
+                        diff.print_both(fout);
                     }
                     else if(c3 == "3"){
+                        fraction temp = mult;
                         mult= mult*f3;
-                        cout << "Your product is: ";
-                        mult.print();
+                        temp.print_both(fout);
+                        print <string> (cout, fout, " * ");
+                        f3.print_both(fout);
+                        print <string> (cout, fout, " = ");
+                        mult.print_both(fout);
                     }
                     else if(c3 == "4"){
+                        fraction temp = div;
                         div= div/f3;
-                        cout << "Your quotient is: ";
-                        div.print();
+                        temp.print_both(fout);
+                        print <string> (cout, fout, " / ");
+                        f3.print_both(fout);
+                        print <string> (cout, fout, " = ");
+                        div.print_both(fout);
                     }
                     
                     cout << endl << "Would you like to add another number? Enter Y or N: ";
@@ -302,22 +340,6 @@ int main() {
                         cout << "Invalid Entry. Enter Y or N: ";
                         cin >> another;
                     }
-                }
-                if(c3 == "1"){
-                    fout << "\nYour final sum is: ";
-                    sum.f_print(fout);
-                    }
-                else if(c3 == "2"){
-                    fout << "\nYour final difference is: ";
-                    diff.f_print(fout);
-                }
-                else if(c3 == "3"){
-                    fout << "\nYour final product is: ";
-                    mult.f_print(fout);
-                }
-                else if(c3 == "4"){
-                    fout << "\nYour final quotient is: ";
-                    div.f_print(fout);
                 }
                 print(cout, fout, "\n");
             }
@@ -444,7 +466,7 @@ int main() {
                         cin >> another;
                     }
                 }
-                print(cout, fout, "\n");
+                print<string>(cout, fout, "\n");
             }
         }
         else if(category == "5"){
@@ -454,7 +476,7 @@ int main() {
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c5);
             if(c5 == "1"){
-                print(cout, fout, "You chose factors.\n");
+                print<string>(cout, fout, "You chose factors.\n");
                 int n;
                 cout << "Enter a number: ";
                 cin >> n;
@@ -469,10 +491,10 @@ int main() {
                         print <string> (cout, fout, ",");
                     }
                 }
-                print(cout, fout, "\n");
+                print<string>(cout, fout, "\n");
             }
             else if(c5 == "2"){
-                print(cout, fout, "You chose greatest common factor (GCF).\n");
+                print<string>(cout, fout, "You chose greatest common factor (GCF).\n");
                 int n1;
                 int n2;
                 cout << "Enter your first number: ";
@@ -494,6 +516,7 @@ int main() {
             getline(cin, c6);
             cout << endl;
             if(c6 == "1"){
+                print<string>(cout, fout, "You chose multiples.\n");
                 int n;
                 int x;
                 cout << "To find n multiples of a number x: " << endl;
@@ -513,6 +536,7 @@ int main() {
                 cout << endl;
             }
             else if(c6 == "2"){
+                print<string>(cout, fout, "You chose least common multiple (LCM).\n");
                 int n1;
                 int n2;
                 cout << "Enter your first number: ";
@@ -522,6 +546,7 @@ int main() {
                 multiple m1(n1, 10);
                 int lcm = m1.lcm(n2);
                 cout << "The LCM of " << n1 << " and " << n2 << " is " << lcm << endl;
+                fout << "The LCM of " << n1 << " and " << n2 << " is " << lcm << endl;
             }
         
         }
@@ -541,9 +566,11 @@ int main() {
                 cout << "Note, in order to ";
                 if (c7 == "1"){
                     cout << "add";
+                    print<string>(cout, fout, "You chose matrix addition.\n");
                 }
                 else if(c7 == "2"){
                     cout << "subtract";
+                    print<string>(cout, fout, "You chose matrix subtraction.\n");
                 }
                 cout << "matrices they must have the same dimensions" << endl;
                 cout << "To construct a m by n matrix: " << endl;
@@ -579,26 +606,27 @@ int main() {
                 matrix m_2(m, n, m2);
                 matrix sum = m_1 + m_2;
                 matrix diff = m_1 - m_2;
-                m_1.print();
-                cout << endl << endl << "         ";
+                m_1.print_both(fout);
+                print<string>(cout,fout,"\n\n         ");
                 if(c7 == "1"){
-                    cout << "+";
+                    print<string>(cout,fout,"+");
                 }
                 else if(c7 == "2"){
-                    cout << "-";
+                    print<string>(cout,fout,"-");
                 }
-                cout << "         " << endl;
-                m_2.print();
-                cout << endl << endl << "          =         " << endl;
+                print<string>(cout, fout, "         \n");
+                m_2.print_both(fout);
+                print<string>(cout, fout, "\n\n          =         \n");
                 if(c7 == "1"){
-                    sum.print();
+                    sum.print_both(fout);
                 }
                 else if(c7 == "2"){
-                    diff.print();
+                    diff.print_both(fout);
                 }
-                cout << endl;
+                print<string>(cout, fout, "\n");
             }
             else if(c7 == "3"){
+                print<string>(cout, fout, "You chose matrix determinant.");
                 int m;
                 int n;
                 int p;
@@ -638,14 +666,15 @@ int main() {
                 }
                 matrix m_2(m, n, m2);
                 matrix product = m_1 * m_2;
-                m_1.print();
-                cout << endl << endl << "          *         " << endl;
-                m_2.print();
-                cout << endl << endl << "          =         " << endl;
-                product.print();
-                cout << endl;
+                m_1.print_both(fout);
+                print<string>(cout, fout, "\n\n          *         ");
+                m_2.print_both(fout);
+                print<string>(cout, fout, "\n\n          =         ");
+                product.print_both(fout);
+                print<string>(cout, fout, "\n");
             }
             else if(c7 == "4"){
+                print(cout, fout, "You chose matrix transpose.");
                 int n;
                 int m;
                 cout << "We will take the transpose of an m by n matrix: " << endl;
@@ -667,11 +696,11 @@ int main() {
                 matrix mat(m,n, m1);
                 matrix transpose = mat.transpose();
                 
-                cout << "The transpose of: " << endl << endl;
-                mat.print();
-                cout << endl << endl << "is" << endl << endl;
-                transpose.print();
-                cout << endl;
+                print<string>(cout, fout, "The transpose of: \n\n");
+                mat.print_both(fout);
+                print<string>(cout, fout, "\n\nis\n\n");
+                transpose.print_both(fout);
+                print<string>(cout, fout, "\n");
             }
             else if(c7 == "5" || c7 == "6"){ //needs fixing - bad access for determinant and inverse
                 cout << "To calculate the ";
@@ -695,23 +724,21 @@ int main() {
                 }
                 matrix mat(2,2, m1);
                 if (c7 =="5"){
-                    cout << "The determinant of: ";
+                    print<string>(cout, fout, "The determinant of:\n\n");
                 }
                 else if(c7 == "6"){
-                    cout << "The inverse of :";
+                    print<string>(cout, fout, "The inverse of :\n\n");
                 }
-                cout << endl << endl;
-                mat.print();
-                cout << endl << endl << "is" << endl << endl;
+                mat.print_both(fout);
+                print<string>(cout, fout, "\n\nis\n\n");
                 if(c7 == "5"){
                     cout << mat.determinant(); //NEEDS FIXING
                 }
                 else if(c7 == "6"){
                     matrix inverse = mat.inverse();
-                    inverse.print();
+                    inverse.print_both(fout);
                 }
-                cout << endl;
-                
+                print<string>(cout, fout, "\n");
             }
             
         }

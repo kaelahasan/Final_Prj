@@ -26,8 +26,6 @@ public:
     fraction operator - (fraction& x);
     fraction operator * (fraction& x);
     fraction operator / (fraction& x);
-    void print();
-    void f_print(ostream &fout);
     void print_both(ostream &fout);
     int gcd(int n, int d);
 private:

@@ -18,7 +18,6 @@ public:
         a = _a;
         b = _b;
     }
-    friend ostream &operator<<(ostream &fout, const complex_number &x);
     complex_number operator + (complex_number& x);
     complex_number operator - (complex_number& x);
     complex_number operator * (complex_number& x);

@@ -39,14 +39,6 @@ fraction fraction::operator / (fraction& x){
     
 }
 
-void fraction::print(){
-    cout << num << "/" << denom;
-}
-
-void fraction::f_print(ostream &fout){
-    fout << num << "/" << denom;
-}
-
 void fraction::print_both(ostream &fout){
     cout << num << "/" << denom;
     fout << num << "/" << denom;

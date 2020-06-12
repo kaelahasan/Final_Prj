@@ -14,7 +14,7 @@ public:
     }
     matrix(int r, int c);
     matrix(int r, int c, vector<vector<double>> _m);
-    void print(); 
+    void print_both(ostream &fout); 
     matrix operator + (matrix& x);
     matrix operator - (matrix& x);
     matrix operator * (matrix& x);
