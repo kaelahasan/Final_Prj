@@ -281,16 +281,25 @@ int main() {
             cout << "1: Addition" <<  endl
                  << "2: Subtraction" << endl
                  << "3: Multiplication" << endl
-            << "4: Division" << endl << endl;
+                 << "4: Division" << endl << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c4);
-            if(c4 == "1"){
+            if(c4 == "1" || c4 == "2" || c4 == "3" || c4 == "4"){
                 double a;
                 double b;
                 double c;
                 double d;
+                complex_number sum;
+                complex_number diff;
+                complex_number mult;
+                complex_number div;
                 string another = "y";
-                cout << "To calculate a+bi + c+di: " << endl;
+                cout << "To calculate a+bi";
+                if(c4 == "1") cout << " + ";
+                else if(c4 == "2") cout << " - ";
+                else if(c4 == "3") cout << " * ";
+                else if(c4 ==  "4") cout << " / ";
+                cout << "c+di: " << endl;
                 cout << "Enter the real part of the first number a: ";
                 cin >> a;
                 cout << "Enter the imaginary part of the first number b: ";
@@ -301,15 +310,31 @@ int main() {
                 cout << "Enter the imaginary part of the second number d: ";
                 cin >> d;
                 complex_number c2(c,d);
-                complex_number sum = c1 + c2;
+                if(c4 == "1") sum = c1 + c2;
+                else if(c4 == "2") diff = c1 - c2;
+                else if(c4 == "3") mult = c1 * c2;
+                else if(c4 ==  "4") div = c1 / c2;
                 
                 c1.print();
-                cout << " + ";
+                
+                if(c4 == "1") cout << " + ";
+                else if(c4 == "2") cout << " - ";
+                else if(c4 == "3") cout << " * ";
+                else if(c4 ==  "4") cout << " / ";
+                
                 c2.print();
                 cout << " = ";
-                sum.print();
+                if(c4 == "1") sum.print();
+                else if(c4 == "2") diff.print();
+                else if(c4 == "3") mult.print();
+                else if(c4 ==  "4") div.print();
                 
-                cout << endl << "Would you like to add another complex number? Enter Y or N: ";
+                cout << endl << "Would you like to ";
+                if(c4 == "1") cout << "add";
+                else if(c4 == "2") cout << "subtract";
+                else if(c4 == "3") cout << "multiply by";
+                else if(c4 ==  "4") cout << "divide by";
+                cout << " another complex number? Enter Y or N: ";
                 cin >> another;
                 double real;
                 double imag;
@@ -320,153 +345,27 @@ int main() {
                     cout << "Enter the imaginary part of the number b: ";
                     cin >> imag;
                     complex_number c3(real ,imag);
-                    sum= sum+c3;
-                    cout << "Your sum is: ";
-                    sum.print();
+                    if(c4 == "1"){
+                        sum = sum + c3;
+                        cout << "Your sum is: ";
+                        sum.print();
+                    }
+                    else if(c4 == "2"){
+                        diff = diff - c3;
+                        cout << "Your difference is: ";
+                        diff.print();
+                    }
+                    else if(c4 == "3"){
+                        mult = mult * c3;
+                        cout << "Your product is: ";
+                        mult.print();
+                    }
+                    else if(c4 ==  "4"){
+                        div = div / c3;
+                        cout << "Your quotient is: ";
+                        div.print();
+                    }
                     cout << endl << "Would you like to add another complex number? Enter Y or N: ";
-                    cin >> another;
-                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
-                        cout << "Invalid Entry. Enter Y or N: ";
-                        cin >> another;
-                    }
-                }
-                cout << endl;
-            }
-            else if(c4 == "2"){
-                double a;
-                double b;
-                double c;
-                double d;
-                string another = "y";
-                cout << "To calculate a+bi - c+di: " << endl;
-                cout << "Enter the real part of the first number a: ";
-                cin >> a;
-                cout << "Enter the imaginary part of the first number b: ";
-                cin >> b;
-                complex_number c1(a, b);
-                cout << endl << "Enter the real part of the second number c: ";
-                cin >> c;
-                cout << "Enter the imaginary part of the second number d: ";
-                cin >> d;
-                complex_number c2(c,d);
-                complex_number diff = c1 - c2;
-                
-                c1.print();
-                cout << " - ";
-                c2.print();
-                cout << " = ";
-                diff.print();
-                cout << endl << "Would you like to subtract another complex number? Enter Y or N: ";
-                cin >> another;
-                double real;
-                double imag;
-                while(another == "Y" || another == "y"){ //user can continue to add numbers
-                    
-                    cout << "Enter the real part of the number a: ";
-                    cin >> real;
-                    cout << "Enter the imaginary part of the number b: ";
-                    cin >> imag;
-                    complex_number c3(real ,imag);
-                    diff= diff-c3;
-                    cout << "Your difference is: ";
-                    diff.print();
-                    cout << endl << "Would you like to subtract another complex number? Enter Y or N: ";
-                    cin >> another;
-                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
-                        cout << "Invalid Entry. Enter Y or N: ";
-                        cin >> another;
-                    }
-                }
-                cout << endl;
-            }
-            else if(c4 == "3"){
-                double a;
-                double b;
-                double c;
-                double d;
-                string another = "y";
-                cout << "To calculate (a+bi) * (c+di): " << endl;
-                cout << "Enter the real part of the first number a: ";
-                cin >> a;
-                cout << "Enter the imaginary part of the first number b: ";
-                cin >> b;
-                complex_number c1(a, b);
-                cout << endl << "Enter the real part of the second number c: ";
-                cin >> c;
-                cout << "Enter the imaginary part of the second number d: ";
-                cin >> d;
-                complex_number c2(c,d);
-                complex_number product = c1 * c2;
-                
-                c1.print();
-                cout << " * ";
-                c2.print();
-                cout << " = ";
-                product.print();
-                
-                cout << endl << "Would you like to multiply by another complex number? Enter Y or N: ";
-                cin >> another;
-                double real;
-                double imag;
-                while(another == "Y" || another == "y"){ //user can continue to add numbers
-                    
-                    cout << "Enter the real part of the number a: ";
-                    cin >> real;
-                    cout << "Enter the imaginary part of the number b: ";
-                    cin >> imag;
-                    complex_number c3(real ,imag);
-                    product= product*c3;
-                    cout << "Your sum is: ";
-                    product.print();
-                    cout << endl << "Would you like to multiply by another complex number? Enter Y or N: ";
-                    cin >> another;
-                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
-                        cout << "Invalid Entry. Enter Y or N: ";
-                        cin >> another;
-                    }
-                }
-                cout << endl;
-            }
-            else if(c4 == "4"){
-                double a;
-                double b;
-                double c;
-                double d;
-                string another = "y";
-                cout << "To calculate (a+bi)/(c+di): " << endl;
-                cout << "Enter the real part of the first number a: ";
-                cin >> a;
-                cout << "Enter the imaginary part of the first number b: ";
-                cin >> b;
-                complex_number c1(a, b);
-                cout << endl << "Enter the real part of the second number c: ";
-                cin >> c;
-                cout << "Enter the imaginary part of the second number d: ";
-                cin >> d;
-                complex_number c2(c,d);
-                complex_number quot = c1 / c2;
-                
-                c1.print();
-                cout << " / ";
-                c2.print();
-                cout << " = ";
-                quot.print();
-                
-                cout << endl << "Would you like to divide by another complex number? Enter Y or N: ";
-                cin >> another;
-                double real;
-                double imag;
-                while(another == "Y" || another == "y"){ //user can continue to add numbers
-                    
-                    cout << "Enter the real part of the number a: ";
-                    cin >> real;
-                    cout << "Enter the imaginary part of the number b: ";
-                    cin >> imag;
-                    complex_number c3(real ,imag);
-                    quot= quot/c3;
-                    cout << "Your quotient is: ";
-                    quot.print();
-                    cout << endl << "Would you like to divide by another complex number? Enter Y or N: ";
                     cin >> another;
                     while(another != "Y" && another != "y" && another != "N" && another != "n"){
                         cout << "Invalid Entry. Enter Y or N: ";
