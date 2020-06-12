@@ -39,9 +39,13 @@ int main() {
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c1);
             cout << endl;
-            if (c1 == "1"){ //Addition
+            if (c1 == "1" || c1 == "2" || c1 == "3" || c1 == "4" ){ //Addition
                 double n1;
                 double n2;
+                double sum = 0.0;
+                double diff = 0.0;
+                double mult = 0.0;
+                double div = 0.0;
                 string another = "y";
                 cout << "Please enter your first number: ";
                 cin >> n1;
@@ -49,105 +53,84 @@ int main() {
                 cout << "Please enter your next number: ";
                 cin >> n2;
                 cout << endl;
-                double sum = n1+n2;
-                cout << n1 << " + " << n2 << " = " << sum << endl;
-                cout << "Would you like to add another number? Enter Y or N: ";
+                if(c1 == "1"){
+                    sum = n1+n2;
+                }
+                else if(c1 == "2"){
+                    diff = n1-n2;
+                }
+                else if(c1 == "3"){
+                   mult = n1*n2;
+                }
+                else if(c1 == "4"){
+                    div = n1/n2;
+                }
+                
+                cout << n1;;
+                if(c1 == "1"){
+                    cout << " + ";
+                }
+                else if(c1 == "2"){
+                    cout << " - ";
+                }
+                else if(c1 == "3"){
+                    cout << " * ";
+                }
+                else if(c1 == "4"){
+                    cout << " / ";
+                }
+                cout << n2 << " = ";
+                if(c1 == "1"){
+                    cout << sum;
+                }
+                else if(c1 == "2"){
+                    cout << diff;
+                }
+                else if(c1 == "3"){
+                    cout << mult;
+                }
+                else if(c1 == "5"){
+                    cout << div;
+                }
+                cout << endl << "Would you like to ";
+                if(c1 == "1"){
+                    cout << "add";
+                }
+                else if(c1 == "2"){
+                    cout << "subtract";
+                }
+                else if(c1 == "3"){
+                    cout << "multiply by";
+                }
+                else if(c1 == "5"){
+                    cout << "divide by";
+                }
+                
+                cout << " another number? Enter Y or N: ";
                 cin >> another;
                 double n;
                 while(another == "Y" || another == "y"){ //user can continue to add numbers
                     
                     cout << "Please enter your next number: ";
                     cin >> n;
-                    sum+=n;
-                    cout << "Your sum is: " << sum << endl;
+                    if(c1 == "1"){
+                        sum+=n;
+                        cout << "Your sum is: " << sum << endl;
+                    }
+                    else if(c1 == "2"){
+                        diff-=n;
+                        cout << "Your difference is: " << diff << endl;
+                    }
+                    else if(c1 == "3"){
+                        mult*=n;
+                        cout << "Your product is: " << mult << endl;
+                    }
+                    else if(c1 == "3"){
+                        div/=n;
+                        cout << "Your quotient is: " << div << endl;
+                    }
+                    
                     cout << "Would you like to add another number? Enter Y or N: ";
-                    cin >> another;
-                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
-                        cout << "Invalid Entry. Enter Y or N: ";
-                        cin >> another;
-                    }
-                }
-            }
-            else if(c1 == "2"){ //Subtraction
-                double n1;
-                double n2;
-                string another = "y";
-                cout << "Please enter your first number: ";
-                cin >> n1;
-                cout << endl;
-                cout << "Please enter your next number: ";
-                cin >> n2;
-                cout << endl;
-                double diff = n1-n2;
-                cout << n1 << " - " << n2 << " = " << diff << endl;
-                cout << "Would you like to subtract another number? Enter Y or N: ";
-                cin >> another;
-                double n;
-                while(another == "Y" || another == "y"){ //user can continue to subtract numbers
-                    
-                    cout << "Please enter your next number: ";
-                    cin >> n;
-                    diff-=n;
-                    cout << "Your difference is: " << diff << endl;
-                    cout << "Would you like to subtract another number? Enter Y or N: ";
-                    cin >> another;
-                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
-                        cout << "Invalid Entry. Enter Y or N: ";
-                        cin >> another;
-                    }
-                }
-            }
-            else if(c1 == "3"){ //mutliplication
-                double n1;
-                double n2;
-                string another = "y";
-                cout << "Please enter your first number: ";
-                cin >> n1;
-                cout << endl;
-                cout << "Please enter your next number: ";
-                cin >> n2;
-                cout << endl;
-                double mult = n1*n2;
-                cout << n1 << " * " << n2 << " = " << mult << endl;
-                cout << "Would you like to multiply another number? Enter Y or N: ";
-                cin >> another;
-                double n;
-                while(another == "Y" || another == "y"){ //user can continue to multiply numbers
-                    
-                    cout << "Please enter your next number: ";
-                    cin >> n;
-                    mult*=n;
-                    cout << "Your product is: " << mult << endl;
-                    cout << "Would you like to multiply another number? Enter Y or N: ";
-                    cin >> another;
-                    while(another != "Y" && another != "y" && another != "N" && another != "n"){
-                        cout << "Invalid Entry. Enter Y or N: ";
-                        cin >> another;
-                    }
-                }
-            }
-            else if(c1 == "4"){ //division
-                double n1;
-                double n2;
-                string another = "y";
-                cout << "Please enter your first number: ";
-                cin >> n1;
-                cout << endl;
-                cout << "Please enter your next number: ";
-                cin >> n2;
-                cout << endl;
-                double div = n1/n2;
-                cout << n1 << " / " << n2 << " = " << div << endl;
-                cout << "Would you like to divide by another number? Enter Y or N: ";
-                cin >> another;
-                double n;
-                while(another == "Y" || another == "y"){ //user can continue to divide numbers
-                    
-                    cout << "Please enter your next number: ";
-                    cin >> n;
-                    div/=n;
-                    cout << "Your quotient is: " << div << endl;
-                    cout << "Would you like to divide by another number? Enter Y or N: ";
                     cin >> another;
                     while(another != "Y" && another != "y" && another != "N" && another != "n"){
                         cout << "Invalid Entry. Enter Y or N: ";
