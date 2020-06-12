@@ -454,21 +454,25 @@ int main() {
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c5);
             if(c5 == "1"){
+                print(cout, fout, "You chose factors.\n");
                 int n;
                 cout << "Enter a number: ";
                 cin >> n;
                 factor f = factor(n);
                 vector<int> factors = f.get_factors();
-                cout << endl << "The factors of " << n << " are:";
+                cout << "\nThe factors of " << n << " are:";
+                fout << "\nThe factors of " << n << " are:";
                 for(int i = 0; i < factors.size(); i++){
-                    cout << " " << factors[i];
+                    print <string> (cout, fout, " ");
+                    print <int> (cout, fout, factors[i]);
                     if(i != factors.size()-1){
-                        cout << ",";
+                        print <string> (cout, fout, ",");
                     }
                 }
-                cout << endl;
+                print(cout, fout, "\n");
             }
             else if(c5 == "2"){
+                print(cout, fout, "You chose greatest common factor (GCF).\n");
                 int n1;
                 int n2;
                 cout << "Enter your first number: ";
@@ -479,6 +483,7 @@ int main() {
                 factor f2 = factor(n2);
                 int gcf = f1.gcf(f2);
                 cout << "The GCF of " << n1 << " and " << n2 << " is " << gcf << endl;
+                fout << "The GCF of " << n1 << " and " << n2 << " is " << gcf << endl;
             }
         }
         else if(category == "6"){
@@ -720,7 +725,7 @@ int main() {
             cout << "Invalid Entry. Enter Y or N: ";
             getline(cin, again);
         }
-        print<string>(cout, fout, "------------------------------------------------");
+        print<string>(cout, fout, "-----------------------------------------------------------\n");
     }
     fout.close();
     return 0;
