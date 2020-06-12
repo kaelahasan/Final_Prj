@@ -12,19 +12,7 @@
 using namespace std;
 
 ofstream fout; //file output
-/*template <class string, class double, class int, class fraction, class complex_number>
-class universal{
-    string s;
-    double d;
-    int i;
-    fraction f;
-    complex_number x;
-public:
-    void print(ostream &os1, ostream &os2, universal x){
-        os1 << x;
-        os2 << x;
-    }
-};*/
+
 
 template <class universal>
 void print(ostream &os1, ostream &os2, universal x){
@@ -32,32 +20,29 @@ void print(ostream &os1, ostream &os2, universal x){
     os2 << x;
 }
 
-
-
-
 int main() {
     fout.open("calculator.txt");
     print(cout, fout, "Hello. This is an advanced calculator.\n");
     string again = "Y";
     while (again == "Y" || again == "y"){
-        print <string> (cout, fout, "1: Basic Arithmetic\n");
-        print(cout, fout, "2: Advanced Calculations\n");
-        print(cout, fout, "3: Fractions\n");
-        print(cout, fout, "4: Complex Numbers\n");
-        print(cout, fout, "5: Factors\n");
-        print(cout, fout, "6: Multiples\n");
-        print(cout, fout, "7: Matrices\n");
+        cout << "1: Basic Arithmetic\n";
+        cout << "2: Advanced Calculations\n";
+        cout << "3: Fractions\n";
+        cout << "4: Complex Numbers\n";
+        cout << "5: Factors\n";
+        cout << "6: Multiples\n";
+        cout << "7: Matrices\n";
         string category;
-        print(cout, fout, "Please enter the number corresponding to the category you would like to choose: ");
+        cout << "Please enter the number corresponding to the category you would like to choose: ";
         getline(cin, category);
         print(cout, fout, "\n");
         if(category == "1"){ //Basic Arithmetic
             string c1;
-            print <string> (cout, fout, "1: Addition\n");
-            print <string> (cout, fout, "2: Subtraction\n");
-            print <string> (cout, fout, "3: Multiplication\n");
-            print <string> (cout, fout, "4: Division\n");
-            print <string> (cout, fout, "Please enter the number corresponding to the category you would like to choose: ");
+            cout << "1: Addition\n";
+            cout << "2: Subtraction\n";
+            cout << "3: Multiplication\n";
+            cout << "4: Division\n";
+            cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c1);
             print <string> (cout, fout, "\n");
             if (c1 == "1" || c1 == "2" || c1 == "3" || c1 == "4" ){ //Addition
@@ -68,9 +53,12 @@ int main() {
                 double mult = 0.0;
                 double div = 0.0;
                 string another = "y";
+                if(c1 == "1") print <string> (cout, fout, "You chose addition\n");
+                else if(c1 == "2") print <string> (cout, fout, "You chose subtraction\n");
+                else if(c1 == "3") print <string> (cout, fout, "You chose multiplication\n");
+                else if(c1 == "4") print <string> (cout, fout, "You chose division\n");
                 cout << "Please enter your first number: ";
                 cin >> n1;
-                cout << "\n";
                 cout << "Please enter your next number: ";
                 cin >> n2;
                 print <string> (cout, fout, "\n");
@@ -79,20 +67,21 @@ int main() {
                 else if(c1 == "3") mult = n1*n2;
                 else if(c1 == "4") div = n1/n2;
                 print <double> (cout, fout, n1);
-                if(c1 == "1") cout << " + ";
-                else if(c1 == "2") cout << " - ";
-                else if(c1 == "3") cout << " * ";
-                else if(c1 == "4") cout << " / ";
-                cout << n2 << " = ";
-                if(c1 == "1") cout << sum;
-                else if(c1 == "2") cout << diff;
-                else if(c1 == "3") cout << mult;
-                else if(c1 == "5") cout << div;
+                if(c1 == "1") print <string> (cout, fout, " + ");
+                else if(c1 == "2") print <string> (cout, fout, " - ");
+                else if(c1 == "3") print <string> (cout, fout, " * ");
+                else if(c1 == "4") print <string> (cout, fout, " / ");
+                print <double> (cout, fout, n2);
+                print <string> (cout, fout, " = ");
+                if(c1 == "1") print <double> (cout, fout, sum);
+                else if(c1 == "2") print <double> (cout, fout, diff);
+                else if(c1 == "3") print <double> (cout, fout, mult);
+                else if(c1 == "5") print <double> (cout, fout, div);
                 cout << endl << "Would you like to ";
                 if(c1 == "1") cout << "add";
                 else if(c1 == "2") cout << "subtract";
                 else if(c1 == "3") cout << "multiply by";
-                else if(c1 == "5") cout << "divide by";
+                else if(c1 == "4") cout << "divide by";
                 cout << " another number? Enter Y or N: ";
                 cin >> another;
                 double n;
@@ -112,7 +101,7 @@ int main() {
                         mult*=n;
                         cout << "Your product is: " << mult << endl;
                     }
-                    else if(c1 == "3"){
+                    else if(c1 == "4"){
                         div/=n;
                         cout << "Your quotient is: " << div << endl;
                     }
@@ -124,6 +113,10 @@ int main() {
                         cin >> another;
                     }
                 }
+                if(c1 == "1") fout << "\nYour final sum is: " << sum << endl;
+                else if(c1 == "2") fout << "\nYour final difference is: " << diff << endl;
+                else if(c1 == "3") fout << "\nYour final product is: " << mult << endl;
+                else if(c1 == "4") fout << "\nYour final quotient is: " << div << endl;
             }
             
         }
