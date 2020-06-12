@@ -70,13 +70,7 @@ matrix matrix::transpose(){
     return t; 
 }
 double matrix::determinant(){
-    if(row_size == 2 && col_size == 2){
         return (m[1][1]*m[2][2]) - (m[1][2]*m[2][1]);
-    }
-    else{
-        cout << "This is only for 2 by 2 matrices.";
-        exit(0);
-    }
 }
 
 matrix matrix::inverse(){
@@ -84,7 +78,11 @@ matrix matrix::inverse(){
     for(int k =0; k < col_size; k++){
         i.m.push_back(vector<double> (col_size));
     }
-    if(row_size == 2 && col_size == 2){
+    if(determinant() == 0.0){
+        cout << "This matrix is not invertible";
+        exit(0); //fix this condition
+    }
+    else{
         double a = 1.0/determinant();
         i.m[1][1] = a*m[2][2];
         i.m[1][2] = a*-1*m[1][2];
@@ -93,10 +91,7 @@ matrix matrix::inverse(){
         return i;
             
     }
-    else{
-        cout << "This is only for 2 by 2 matrices."; 
-        exit(0); //fix this condition
-    }
+    
 }
 
 void matrix::print(){

@@ -832,6 +832,74 @@ int main() {
                 product.print();
                 cout << endl;
             }
+            else if(c7 == "4"){
+                int n;
+                int m;
+                cout << "We will take the transpose of an m by n matrix: " << endl;
+                cout << "Enter number of rows m: ";
+                cin >> m;
+                cout << "Enter number of columns n: ";
+                cin >> n;
+                vector<vector<double>> m1;
+                cout << "We will now construct the matrix by row: " << endl;
+                for(int k =0; k<n; k++){
+                    m1.push_back(vector<double> (m));
+                }
+                for (int i = 0; i < n; i++){
+                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
+                    for(int j = 0; j < m; j++){
+                        cin >> m1[i][j];
+                    }
+                }
+                matrix mat(m,n, m1);
+                matrix transpose = mat.transpose();
+                
+                cout << "The transpose of: " << endl << endl;
+                mat.print();
+                cout << endl << endl << "is" << endl << endl;
+                transpose.print();
+                cout << endl;
+            }
+            else if(c7 == "5"){
+                cout << "To calculate the determinant of a 2 by 2 matrix: " << endl;
+                vector<vector<double>> m1;
+                cout << "We will now construct the matrix by row: " << endl;
+                for(int k =0; k<2; k++){
+                    m1.push_back(vector<double> (2));
+                }
+                for (int i = 0; i < 2; i++){
+                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
+                    for(int j = 0; j < 2; j++){
+                        cin >> m1[i][j];
+                    }
+                }
+                matrix mat(2,2, m1);
+                cout << "The determinant of: " << endl << endl;
+                mat.print();
+                cout << endl << endl << "is " << mat.determinant(); //NEEDS FIXING
+                cout << endl;
+            }
+            else if(c7 == "6"){
+                cout << "To calculate the determinant of a 2 by 2 matrix: " << endl;
+                vector<vector<double>> m1;
+                cout << "We will now construct the matrix by row: " << endl;
+                for(int k =0; k<2; k++){
+                    m1.push_back(vector<double> (2));
+                }
+                for (int i = 0; i < 2; i++){
+                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
+                    for(int j = 0; j < 2; j++){
+                        cin >> m1[i][j];
+                    }
+                }
+                matrix mat(2,2, m1);
+                matrix inverse = mat.inverse();
+                cout << "The inverse of " << endl << endl;
+                mat.print();
+                cout << "is" << endl << endl;
+                inverse.print();
+                cout << endl; 
+            }
         }
         else{
             cout << "Invalid Entry. Enter a number from 1-7 corresponding th othe above categories: ";
