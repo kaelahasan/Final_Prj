@@ -22,12 +22,13 @@ public:
             denom = d;
         }
     }
-    friend ostream &operator<<(ostream &fout, const fraction &x);
     fraction operator + (fraction& x);
     fraction operator - (fraction& x);
     fraction operator * (fraction& x);
     fraction operator / (fraction& x);
-    void print(); 
+    void print();
+    void f_print(ostream &fout);
+    void print_both(ostream &fout);
     int gcd(int n, int d);
 private:
     int num;

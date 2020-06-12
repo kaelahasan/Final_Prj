@@ -133,6 +133,7 @@ int main() {
             if(c2 == "1"){ //raising to a power
                 double b;
                 double x;
+                print <string> (cout, fout, "You chose raising to a power.\n");
                 cout << "To calculate b^x: " << endl;
                 cout << "Enter the base b: ";
                 cin >> b;
@@ -140,10 +141,11 @@ int main() {
                 cin >> x;
                 
                 cout << b << "^" << x << " = " << power(b, x);
+                fout << b << "^" << x << " = " << power(b, x);
             }
             else if(c2 == "2"){ //square root (taken from cmath library)
                 double s;
-                
+                print <string> (cout, fout, "You chose square root.\n");
                 cout << "Enter the number you would like to square root: ";
                 cin >> s;
                 while(s<0){
@@ -152,27 +154,33 @@ int main() {
                     cin >> s;
                 }
                 cout << endl << "The square root of " << s << " is: " << sqrt(s);
+                fout << endl << "The square root of " << s << " is: " << sqrt(s);
                 
             }
             else if(c2 == "3"){ //factorial
+                print <string> (cout, fout, "You chose factorial.\n");
                 int n;
                 cout << "To calculation n!: " << endl;
                 cout << "Enter n: ";
                 cin >> n;
                 cout << endl << n << "! is: " << factorial(n);
+                fout << endl << n << "! is: " << factorial(n);
             }
             else if(c2 == "4"){ //combination
                 int n;
                 int r;
+                print <string> (cout, fout, "You chose combination.\n");
                 cout << "To calculate C(n,r): " << endl;
                 cout << "Enter n: ";
                 cin >> n;
                 cout  << "Enter r: ";
                 cin >> r;
                 cout << endl << "C(n,r) = " << combination(n, r);
+                fout << endl << "C(n,r) = " << combination(n, r);
                 
             }
             else if(c2 == "5"){ //permutation
+                print <string> (cout, fout, "You chose permutation.\n");
                 int n;
                 int r;
                 cout << "To calculate P(n,r): " << endl;
@@ -181,15 +189,18 @@ int main() {
                 cout << "Enter r: ";
                 cin >> r;
                 cout << endl << "P(n,r) = " << permutation(n, r);
+                fout << endl << "P(n,r) = " << permutation(n, r);
     
             }
             else if(c2 == "6"){ //absolute value
+                print <string> (cout, fout, "You chose absolute value.\n");
                 double x;
                 cout << "To calculate |x|, enter x: ";
                 cin >> x;
                 cout << "|x| = " << absolute_value(x) << endl;
+                fout << "|x| = " << absolute_value(x) << endl;
             }
-            cout << endl;
+            print(cout, fout, "\n");
         
         }
         else if(category == "3"){ //Fractions
@@ -201,6 +212,10 @@ int main() {
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c3);
             if(c3 == "1" || c3 == "2" || c3 == "3" || c3 == "4"){ //Addition
+                if(c3 == "1") print <string> (cout, fout, "You chose adding fractions.\n");
+                else if(c3 == "2") print <string> (cout, fout, "You chose subtracting fractions.\n");
+                else if(c3 == "3") print <string> (cout, fout, "You chose multiplying fractions.\n");
+                else if(c3 == "4") print <string> (cout, fout, "You chose dividing fractions.\n");
                 int n1;
                 int n2;
                 int d1;
@@ -231,15 +246,17 @@ int main() {
                 else if(c3 == "3") mult = f1*f2;
                 else if(c3 == "4") div = f1/f2;
                 cout << n1 << "/" << d1;
-                if(c3 == "1") cout << " + ";
-                else if(c3 == "2") cout << " - ";
-                else if(c3 == "3") cout << " * ";
-                else if(c3 == "4") cout << " / ";
+                fout << n1 << "/" <<d1;
+                if(c3 == "1") print <string> (cout, fout, " + ");
+                else if(c3 == "2") print <string> (cout, fout, " - ");
+                else if(c3 == "3") print <string> (cout, fout, " * ");
+                else if(c3 == "4") print <string> (cout, fout, " / ");
                 cout << n2 << "/" << d2 << " = ";
-                if(c3 == "1") sum.print();
-                else if(c3 == "2") diff.print();
-                else if(c3 == "3") mult.print();
-                else if(c3 == "4") div.print();
+                fout << n2 << "/" << d2 << " = ";
+                if(c3 == "1") sum.print_both(fout);
+                else if(c3 == "2") diff.print_both(fout);
+                else if(c3 == "3") mult.print_both(fout);
+                else if(c3 == "4") div.print_both(fout);
                 
                 cout << endl << "Would you like to ";
                 if(c3 == "1") cout << "add";
@@ -271,12 +288,12 @@ int main() {
                     else if(c3 == "3"){
                         mult= mult*f3;
                         cout << "Your product is: ";
-                        mult.print();;
+                        mult.print();
                     }
                     else if(c3 == "4"){
                         div= div/f3;
                         cout << "Your quotient is: ";
-                        div.print();;
+                        div.print();
                     }
                     
                     cout << endl << "Would you like to add another number? Enter Y or N: ";
@@ -285,9 +302,24 @@ int main() {
                         cout << "Invalid Entry. Enter Y or N: ";
                         cin >> another;
                     }
-                
-                cout << endl;
                 }
+                if(c3 == "1"){
+                    fout << "\nYour final sum is: ";
+                    sum.f_print(fout);
+                    }
+                else if(c3 == "2"){
+                    fout << "\nYour final difference is: ";
+                    diff.f_print(fout);
+                }
+                else if(c3 == "3"){
+                    fout << "\nYour final product is: ";
+                    mult.f_print(fout);
+                }
+                else if(c3 == "4"){
+                    fout << "\nYour final quotient is: ";
+                    div.f_print(fout);
+                }
+                print(cout, fout, "\n");
             }
         }
         else if(category == "4"){
