@@ -331,6 +331,11 @@ int main() {
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c4);
             if(c4 == "1" || c4 == "2" || c4 == "3" || c4 == "4"){
+                if(c4 == "1") print <string> (cout, fout, "You chose adding complex numbers.\n");
+                else if(c4 == "2") print <string> (cout, fout, "You chose subtracting complex numbers.\n");
+                else if(c4 == "3") print <string> (cout, fout, "You chose multiplying complex numbers.\n");
+                else if(c4 == "4") print <string> (cout, fout, "You chose dividing complex numbers.\n");
+                
                 double a;
                 double b;
                 double c;
@@ -361,19 +366,19 @@ int main() {
                 else if(c4 == "3") mult = c1 * c2;
                 else if(c4 ==  "4") div = c1 / c2;
                 
-                c1.print();
+                c1.print_both(fout);
                 
-                if(c4 == "1") cout << " + ";
-                else if(c4 == "2") cout << " - ";
-                else if(c4 == "3") cout << " * ";
-                else if(c4 ==  "4") cout << " / ";
+                if(c4 == "1") print <string> (cout, fout, " + ");
+                else if(c4 == "2") print <string> (cout, fout, " - ");
+                else if(c4 == "3") print <string> (cout, fout,  " * ");
+                else if(c4 ==  "4") print <string> (cout, fout, " / ");
                 
-                c2.print();
-                cout << " = ";
-                if(c4 == "1") sum.print();
-                else if(c4 == "2") diff.print();
-                else if(c4 == "3") mult.print();
-                else if(c4 ==  "4") div.print();
+                c2.print_both(fout);
+                print <string> (cout, fout, " = ");
+                if(c4 == "1") sum.print_both(fout);
+                else if(c4 == "2") diff.print_both(fout);
+                else if(c4 == "3") mult.print_both(fout);
+                else if(c4 ==  "4") div.print_both(fout);
                 
                 cout << endl << "Would you like to ";
                 if(c4 == "1") cout << "add";
@@ -392,24 +397,45 @@ int main() {
                     cin >> imag;
                     complex_number c3(real ,imag);
                     if(c4 == "1"){
+                        fout << "\n";
+                        complex_number temp = sum;
                         sum = sum + c3;
-                        cout << "Your sum is: ";
-                        sum.print();
+                        temp.print_both(fout);
+                        print <string> (cout, fout, " + ");
+                        c3.print_both(fout);
+                        print <string> (cout, fout, " = ");
+                        sum.print_both(fout);
+
                     }
                     else if(c4 == "2"){
+                        fout << "\n";
+                        complex_number temp = diff;
                         diff = diff - c3;
-                        cout << "Your difference is: ";
-                        diff.print();
+                        temp.print_both(fout);
+                        print <string> (cout, fout, " - ");
+                        c3.print_both(fout);
+                        print <string> (cout, fout, " = ");
+                        diff.print_both(fout);
                     }
                     else if(c4 == "3"){
+                        fout << "\n";
+                        complex_number temp = mult;
                         mult = mult * c3;
-                        cout << "Your product is: ";
-                        mult.print();
+                        temp.print_both(fout);
+                        print <string> (cout, fout, " * ");
+                        c3.print_both(fout);
+                        print <string> (cout, fout, " = ");
+                        mult.print_both(fout);
                     }
                     else if(c4 ==  "4"){
+                        fout << "\n";
+                        complex_number temp = div;
                         div = div / c3;
-                        cout << "Your quotient is: ";
-                        div.print();
+                        temp.print_both(fout);
+                        print <string> (cout, fout, " / ");
+                        c3.print_both(fout);
+                        print <string> (cout, fout, " = ");
+                        div.print_both(fout);
                     }
                     cout << endl << "Would you like to add another complex number? Enter Y or N: ";
                     cin >> another;
@@ -418,7 +444,7 @@ int main() {
                         cin >> another;
                     }
                 }
-                cout << endl;
+                print(cout, fout, "\n");
             }
         }
         else if(category == "5"){
@@ -694,6 +720,7 @@ int main() {
             cout << "Invalid Entry. Enter Y or N: ";
             getline(cin, again);
         }
+        print<string>(cout, fout, "------------------------------------------------");
     }
     fout.close();
     return 0;

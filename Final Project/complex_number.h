@@ -23,7 +23,7 @@ public:
     complex_number operator - (complex_number& x);
     complex_number operator * (complex_number& x);
     complex_number operator / (complex_number& x);
-    void print(); 
+    void print_both(ostream &fout);
 private:
     double a;
     double b;

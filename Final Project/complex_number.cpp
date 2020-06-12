@@ -33,23 +33,28 @@ complex_number complex_number::operator / (complex_number& x){
     return quotient;
 }
 
-void complex_number::print(){
+void complex_number::print_both(ostream &fout){
     cout << a;
+    fout << a;
     if(b<0.0){
         if(b==-1.0){
             cout << "-i";
+            fout << "-i";
         }
         else{
             cout << "-" << -1*b << "i";
+            fout << "-" << -1*b << "i";
+            
         }
     }
     else if(b>0.0){
         if(b==1.0){
             cout << "+i";
+            fout << "+i";
         }
         else{
             cout << "+" << b << "i";
+            fout << "+" << b << "i";
         }
     }
-
 }
