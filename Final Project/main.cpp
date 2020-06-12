@@ -703,10 +703,17 @@ int main() {
                  << "6: Inverse (Only 2 by 2 matrices)" << endl;
             cout << "Please enter the number corresponding to the category you would like to choose: ";
             getline(cin, c7);
-            if(c7 == "1"){
+            if(c7 == "1" || c7 == "2"){
                 int m;
                 int n;
-                cout << "Note, in order to add matrices they must have the same dimensions" << endl;
+                cout << "Note, in order to ";
+                if (c7 == "1"){
+                    cout << "add";
+                }
+                else if(c7 == "2"){
+                    cout << "subtract";
+                }
+                cout << "matrices they must have the same dimensions" << endl;
                 cout << "To construct a m by n matrix: " << endl;
                 cout << "Enter number of rows m: ";
                 cin >> m;
@@ -739,55 +746,25 @@ int main() {
                 }
                 matrix m_2(m, n, m2);
                 matrix sum = m_1 + m_2;
-                m_1.print();
-                cout << endl << endl << "          +         " << endl;
-                m_2.print();
-                cout << endl << endl << "          =         " << endl;
-                sum.print();
-                cout << endl;
-            }
-            else if(c7 == "2"){
-                int m;
-                int n;
-                cout << "Note, in order to subtract matrices they must have the same dimensions" << endl;
-                cout << "To construct a m by n matrix: " << endl;
-                cout << "Enter number of rows m: ";
-                cin >> m;
-                cout << "Enter number of columns n: ";
-                cin >> n;
-                vector<vector<double>> m1;
-                vector<vector<double>> m2;
-                cout << "We will now construct the first matrix: " << endl;
-                for(int k =0; k<n; k++){
-                    m1.push_back(vector<double> (m));
-                }
-                for (int i = 0; i < n; i++){
-                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
-                    for(int j = 0; j < m; j++){
-                        cin >> m1[i][j];
-                    }
-                }
-                matrix m_1(m, n, m1);
-                for(int l =0; l < n; l++){
-                    m2.push_back(vector<double> (m));
-                }
-                cout<< "We will now construct the second matrix: " << endl;
-                for (int i = 0; i < n; i++){
-                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
-                    for(int j = 0; j < m; j++){
-                            cin >> m2[i][j];
-                        }
-                    
-                }
-                matrix m_2(m, n, m2);
                 matrix diff = m_1 - m_2;
                 m_1.print();
-                cout << endl << endl << "          -         " << endl;
+                cout << endl << endl << "         ";
+                if(c7 == "1"){
+                    cout << "+";
+                }
+                else if(c7 == "2"){
+                    cout << "-";
+                }
+                cout << "         " << endl;
                 m_2.print();
                 cout << endl << endl << "          =         " << endl;
-                diff.print();
+                if(c7 == "1"){
+                    sum.print();
+                }
+                else if(c7 == "2"){
+                    diff.print();
+                }
                 cout << endl;
-
             }
             else if(c7 == "3"){
                 int m;
@@ -864,8 +841,15 @@ int main() {
                 transpose.print();
                 cout << endl;
             }
-            else if(c7 == "5"){
-                cout << "To calculate the determinant of a 2 by 2 matrix: " << endl;
+            else if(c7 == "5" || c7 == "6"){ //needs fixing - bad access for determinant and inverse
+                cout << "To calculate the ";
+                if (c7 == "5"){
+                    cout << "determinant";
+                }
+                else if (c7 == "6"){
+                    cout << "inverse";
+                }
+                cout << " of a 2 by 2 matrix: " << endl;
                 vector<vector<double>> m1;
                 cout << "We will now construct the matrix by row: " << endl;
                 for(int k =0; k<2; k++){
@@ -878,32 +862,26 @@ int main() {
                     }
                 }
                 matrix mat(2,2, m1);
-                cout << "The determinant of: " << endl << endl;
+                if (c7 =="5"){
+                    cout << "The determinant of: ";
+                }
+                else if(c7 == "6"){
+                    cout << "The inverse of :";
+                }
+                cout << endl << endl;
                 mat.print();
-                cout << endl << endl << "is " << mat.determinant(); //NEEDS FIXING
+                cout << endl << endl << "is" << endl << endl;
+                if(c7 == "5"){
+                    cout << mat.determinant(); //NEEDS FIXING
+                }
+                else if(c7 == "6"){
+                    matrix inverse = mat.inverse();
+                    inverse.print();
+                }
                 cout << endl;
+                
             }
-            else if(c7 == "6"){
-                cout << "To calculate the determinant of a 2 by 2 matrix: " << endl;
-                vector<vector<double>> m1;
-                cout << "We will now construct the matrix by row: " << endl;
-                for(int k =0; k<2; k++){
-                    m1.push_back(vector<double> (2));
-                }
-                for (int i = 0; i < 2; i++){
-                    cout << "Enter all elements in row " << i+1 << " seperated by a space: ";
-                    for(int j = 0; j < 2; j++){
-                        cin >> m1[i][j];
-                    }
-                }
-                matrix mat(2,2, m1);
-                matrix inverse = mat.inverse();
-                cout << "The inverse of " << endl << endl;
-                mat.print();
-                cout << "is" << endl << endl;
-                inverse.print();
-                cout << endl; 
-            }
+            
         }
         else{
             cout << "Invalid Entry. Enter a number from 1-7 corresponding th othe above categories: ";
