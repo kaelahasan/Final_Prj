@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <cmath> //only used for sqrt function
@@ -10,8 +11,11 @@
 #include "multiples.h"
 using namespace std;
 
+ofstream fout; //file output
 
 int main() {
+    fout.open("calculator.txt");
+    fout << "testing file output"; 
     cout << "Hello. This is an advanced calculator." << endl;
     string again = "Y";
     while (again == "Y" || again == "y"){
@@ -912,5 +916,6 @@ int main() {
             getline(cin, again);
         }
     }
+    fout.close();
     return 0;
 }
