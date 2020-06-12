@@ -36,7 +36,7 @@ int factor:: gcf(factor fac){
             }
         }
     }
-    sort(common.begin(), common.end());
-    reverse(common.begin(), common.end()); 
-    return common[0];
+    sort(common.begin(), common.end()); //sorts common factors low to high
+    reverse(common.begin(), common.end()); //sorts common factors high to low
+    return common[0]; //greatest common factor 
 }

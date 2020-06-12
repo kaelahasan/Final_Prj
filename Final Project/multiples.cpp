@@ -27,7 +27,7 @@ int multiple::lcm(int l){
     for(int i = 0; i<n*l; i++){
         for(int j =0; j<n*l; j++){
             if (m1.m[i] == m2.m[j]){
-                return m1.m[i];
+                return m1.m[i]; //first common multiple is LCM
             }
         }
     }
