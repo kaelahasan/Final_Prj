@@ -196,8 +196,8 @@ int main() {
                 cin >> n;
                 cout  << "Enter r: ";
                 cin >> r;
-                cout << endl << "C(n,r) = " << combination(n, r);
-                fout << endl << "C(n,r) = " << combination(n, r);
+                cout << endl << "C(" << n << "," << r << ") = " << combination(n, r);
+                fout << endl << "C(" << n << "," << r << ") = " << combination(n, r);
                 
             }
             else if(c2 == "5"){ //permutation
@@ -209,8 +209,8 @@ int main() {
                 cin >> n;
                 cout << "Enter r: ";
                 cin >> r;
-                cout << endl << "P(n,r) = " << permutation(n, r);
-                fout << endl << "P(n,r) = " << permutation(n, r);
+                cout << endl << "P(" << n << "," << r << ") = " << permutation(n, r);
+                fout << endl << "P(" << n << "," << r << ") = " << permutation(n, r);
     
             }
             else if(c2 == "6"){ //absolute value
@@ -283,7 +283,7 @@ int main() {
                 if(c3 == "1") cout << "add";
                 else if(c3 == "2") cout << "subtract";
                 else if(c3 == "3") cout << "multiply by";
-                else if(c3 == "5") cout << "divide by";
+                else if(c3 == "4") cout << "divide by";
                     
                 cout << " another fraction? Enter Y or N: ";
                 cin >> another;
@@ -626,11 +626,11 @@ int main() {
                 print<string>(cout, fout, "\n");
             }
             else if(c7 == "3"){
-                print<string>(cout, fout, "You chose matrix determinant.");
+                print<string>(cout, fout, "You chose matrix multiplication.\n");
                 int m;
                 int n;
                 int p;
-                cout << "Note, in order to multiply matrices the column dimension of the first matrix must match the row dimension of the second matrix: (m x n) X (n x p) = n x p" << endl;
+                cout << "Note, in order to multiply matrices the column dimension of the first matrix must match the row dimension of the second matrix: (m x n) X (n x p) = m x p" << endl;
                 cout << "To construct the first m by n matrix: " << endl;
                 cout << "Enter number of rows m: ";
                 cin >> m;
@@ -667,9 +667,9 @@ int main() {
                 matrix m_2(m, n, m2);
                 matrix product = m_1 * m_2;
                 m_1.print_both(fout);
-                print<string>(cout, fout, "\n\n          *         ");
+                print<string>(cout, fout, "\n\n          *         \n\n");
                 m_2.print_both(fout);
-                print<string>(cout, fout, "\n\n          =         ");
+                print<string>(cout, fout, "\n\n          =         \n\n");
                 product.print_both(fout);
                 print<string>(cout, fout, "\n");
             }

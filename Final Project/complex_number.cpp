@@ -35,17 +35,21 @@ complex_number complex_number::operator / (complex_number& x){
 
 void complex_number::print_both(ostream &fout){
     cout << a;
+    fout << a;
     if(b<0.0){
         if(b==-1.0){
             cout << "-i";
+            fout << "-i";
         }
         else{
-            cout << "i";
+            cout << b << "i";
+            fout << b << "i";
         }
     }
     else if(b>0.0){
         if(b==1.0){
             cout << "+i";
+            fout << "+i";
         }
         else{
             cout << "+" << b << "i";
