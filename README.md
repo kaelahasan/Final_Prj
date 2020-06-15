@@ -1,5 +1,5 @@
-#Advanced Calculator
-##Table of Contents
+# Advanced Calculator
+## Table of Contents
 * [Proposal](#Proposal)
 * [Process](#Process)
 * [Functionality](#Functionality) 
